@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Form - Enactus Mansoura</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="style/bootstrap.min.css" rel="stylesheet">
+    <script src="script/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style/style.css?v=2">
+  </head>
+  <body>
+
+
+    <div class="heading">
+        <div class="ref">
+            <ul>
+                <li>
+                    <a href="https://enactusmans.live/">Home</a>
+                </li>
+
+                <li>
+                    <a href="mailto:enactusmans@gmail.com">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+        <img id="logo" src="assets/main.svg" alt="">
+        <p id="fall">Fall 2023</p>
+        <p id="note">NOTE!</p>
+        <p id="please">PLEASE ANSWER ALL THE QUESTIONS IN APPROPRIATE ENGLISH ONLY WITHOUT USING ANY FRANCO-ARABIC, EMOJIS OR SYMBOLS. WE WISH YOU ALL THE BEST OF LUCK!</p>
+
+    </div>
+
+    <div class="main">
+        <div class="all">
+
+            <div class="form pe-lg-5 pe-md-5 ps-lg-5 ps-md-5 rounded-3">
+                <form action="submit.php" method="post">
+                    <div class="steps mb-5">
+                        <div class="steps-phase steps-phase-active">
+                            <div class="steps-phase-num">
+                                1
+                            </div>
+                            <div class="steps-phase-title">
+                                Personal Questions
+                            </div>
+                        </div>
+                        <div class="steps-phase">
+                            <div class="steps-phase-num">
+                                2
+                            </div>
+                            <div class="steps-phase-title">
+                                Academic Questions
+                            </div>
+                        </div>
+                        <div class="steps-phase">
+                            <div class="steps-phase-num">
+                                3
+                            </div>
+                            <div class="steps-phase-title">
+                                Open Questions
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                    <label for="name" class="form-label form-label-without ">Name<span>*</span></label>
+                    <input
+                        type="text"
+                        class="form-control rounded-3 "
+                        id="name" name="name" placeholder="Enter your name" required/>
+                    </div>
+            
+                    <div class="mb-2">
+                    <label for="email" class="form-label form-label-without">Email<span>*</span></label>
+                    <input
+                        type="email"
+                        class="form-control rounded-3"
+                        id="email" name="email" placeholder="Enter your email" required/>
+                    </div>
+            
+                    <div class="mb-2">
+                        <label for="id" class="form-label form-label-without">National ID<span>*</span></label>
+                    <input
+                        type="number" 
+                        pattern="/^-?\d+\.?\d*$/" 
+                        onKeyPress="if(this.value.length==14) return false;"
+                        class="form-control rounded-3"
+                        id="id" name="id" placeholder="Enter your national id" required/>
+                    </div>
+            
+                    <div class="row">
+
+                        <div class="col-lg col-md mb-2">
+                        <label for="date" class="form-label form-label-without">Date of birth<span>*</span></label>
+                            <input
+                                type="date"
+                                class="form-control rounded-3"
+                                id="date" name="date" required/>
+                        </div>
+                
+                        <div class="col-lg col-md mb-2">
+                        <label for="phone" class="form-label form-label-without">Phone number<span>*</span></label>
+                        <input
+                            type="number"
+                            pattern="/^-?\d+\.?\d*$/" 
+                            class="form-control rounded-3"
+                            id="phone" name="phone" placeholder="Enter your phone number" required/>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                    <label for="address" class="form-label form-label-without">Address<span>*</span></label>
+                    <input
+                        type="text" 
+                        class="form-control rounded-3"
+                        id="Address " name = "address" placeholder="Enter your address" required/>
+                    </div>
+                    <div class="steps pb-5">
+                        <div class="steps-phase ">
+                            <div class="steps-phase-num">
+                                1
+                            </div>
+                            <div class="steps-phase-title">
+                                Personal Questions
+                            </div>
+                        </div>
+                        <div class="steps-phase steps-phase-active">
+                            <div class="steps-phase-num">
+                                2
+                            </div>
+                            <div class="steps-phase-title">
+                                Academic Questions
+                            </div>
+                        </div>
+                        <div class="steps-phase">
+                            <div class="steps-phase-num">
+                                3
+                            </div>
+                            <div class="steps-phase-title">
+                                Open Questions
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                    <label for="school" class="form-label ">High school attended<span>*</span></label>
+                    <input
+                        type="text"
+                        class="form-control rounded-3"
+                        id="school" name="school" placeholder="Enter your high school name" required/>
+                    </div>
+            
+                    <div class="mb-2">
+                    <label for="faculty" class="form-label form-label-without">Faculty<span>*</span></label>
+                    <input
+                        type="text"
+                        class="form-control rounded-3"
+                        id="faculty" name="faculty" placeholder="Enter your faculty" required/>
+                    </div>
+
+
+                    <label  class="form-label mt-4 mb-3">Tutorial year <span>*</span></label><br/>
+
+                    <div class="year">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="radio" id="first" value="first">
+                            <label class="form-check-label" for="first" style="font-weight:600;margin-left: 0px;margin-right: 10px;">
+                                1<sup>st</sup>
+                            </label>
+                            </div>
+
+                        <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radio" id="second" value="second">
+                        <label class="form-check-label" for="second" style="font-weight:600;margin-left: 0px;margin-right: 10px;">
+                            2<sup>nd</sup>
+                        </label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radio" id="third" value="third">
+                        <label class="form-check-label" for="third" style="font-weight:600;margin-left: 0px; margin-right: 10px;">
+                            3<sup>rd</sup>
+                        </label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radio" id="fourth" value="fourth"> 
+                        <label class="form-check-label" for="fourth" style="font-weight:600;margin-left: 0px;margin-right: 10px;">
+                            4<sup>th</sup>
+                        </label>
+                        </div>
+                
+                        <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radio" id="fifth" value="fifth">
+                        <label class="form-check-label" for="fifth" style="font-weight:600;margin-left: 0px;">
+                            5<sup>th</sup>
+                        </label>
+                        </div>
+                    </div>
+            </div>
+
+
+            <div class="form  pe-5 ps-5 rounded-3">
+                <div class="steps pb-5">
+                    <div class="steps-phase ">
+                        <div class="steps-phase-num">
+                            1
+                        </div>
+                        <div class="steps-phase-title">
+                            Personal Questions
+                        </div>
+                    </div>
+                    <div class="steps-phase ">
+                        <div class="steps-phase-num">
+                            2
+                        </div>
+                        <div class="steps-phase-title">
+                            Academic Questions
+                        </div>
+                    </div>
+                    <div class="steps-phase steps-phase-active">
+                        <div class="steps-phase-num">
+                            3
+                        </div>
+                        <div class="steps-phase-title">
+                            Open Questions
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label for="whatknow" class="form-label mt-3">What do you know about Enactus ?<span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="whatknow" name="whatknow" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+
+
+                    <div class="mb-2">
+                    <label for="howknow" class="form-label">How did you know about us ?<span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="howknow" name="howknow" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question"required></textarea>
+                    </div>
+                
+                    <div class="mb-2">
+                    <label for="attract" class="form-label">What about enactus that attracted you to apply and what is your expectation from Enactus?<span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="attract" name="attract" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question"required></textarea>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="talk" class="form-label">Shortly talk about your character to get to know you better.
+                            <span> *</span></label>
+                        <textarea class="form-control rounded-3 mb-5" id="talk" name="talk" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question"required></textarea>
+                    </div>
+            </div>
+            <div class="form pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="volunteer" class="form-label">What teams/volunteer work have you done? What was your role? Give us examples about your team work skills.<span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="volunteer" name="volunteer" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+
+                    
+                </div>
+                <div class="form  pe-0 ps-5 mt-4 rounded-3">
+                    <div class="groupcheck">
+                        <label class="form-check-label" style="display: block; margin-left: 0;" ><p class="mb-0">Are you interested in any field of the following?<span>*</span><br></p>
+                        </label>
+                        <p style="font-weight: 400; color:#5D5D5D">(you can choose more than one)</p>
+                        <div class="allskills mt-4 mb-4">
+                            <div class="skill" style="width: calc(80%/3);">
+                            <input class="form-check-input" type="checkbox" name="fields[]" id="Graphic Design" value="Graphic Design"/>
+                            <label class="form-check-label" for="Graphic Design">Graphic Design</label></div>
+
+                            <div class="skill" style="width: calc(80%/3);">
+                            <input class="form-check-input" type="checkbox" name="fields[]" id="Presentation" value="Presentation"/>
+                            <label class="form-check-label" for="Presentation">Presentation</label></div>
+
+                            <div class="skill">
+                            <input class="form-check-input" type="checkbox" name="fields[]" id="Training" value="Training"/>
+                            <label class="form-check-label" for="Training">Training</label></div>
+
+                            <div class="skill" style="width: calc(80%/3);">
+                            <input class="form-check-input" type="checkbox" name="fields[]" id="Photography" value="Photography"/>
+                            <label class="form-check-label" for="Photography">Photography</label></div>
+
+                            <div class="skill" style="width: calc(80%/3);">
+                            <input class="form-check-input" type="checkbox" name="fields[]" id="Marketing" value="Marketing"/>
+                            <label class="form-check-label" for="Marketing">Marketing</label></div>
+
+                            <div class="skill" style="width: calc(80%/3);">
+                                <input class="form-check-input" type="checkbox" name="fields[]" id="Fundraising" value="Fundraising"/>
+                                <label class="form-check-label" for="Fundraising">Fundraising</label></div>
+
+
+                            <div class="skill" style="width: calc(80%/3);">
+                            <input class="form-check-input" type="checkbox" name="fields[]" id="Field Work" value="Field Work"/>
+                            <label class="form-check-label" for="Field Work">Field Work</label></div>
+                            <div class="skill" id="rndlg" style="width: calc(130%/3); ">
+                                <input class="form-check-input" type="checkbox" name="fields[]" id="Research and Development" value="Research and Development"/>
+                                <label class="form-check-label" for="Research and Development">Research and<br style="display: none;"> Development</label></div>
+
+
+                                <div class="skill" id="rndsm" style="width: calc(130%/3);display: none;">
+                                    <input class="form-check-input" type="checkbox" name="fields[]" id="Research and Development" value="Research and Development"/>
+                                    <label class="form-check-label" for="Research and Development">Research and<br style="display: none;"> Development</label></div>
+
+
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="rateurself" class="form-label">Rate yourself out of 10 and give examples if you have experience in any of them.
+                            <span> *</span></label>
+                        <textarea class="form-control rounded-3 mb-5" id="rateurself" name="rateurself" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                        </div>
+
+                </div>
+                <div class="form  pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="available" class="form-label">What days and times are you available to work with us during the week?<span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="available" name="available" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+                </div>
+                <div class="form  pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="alone" class="form-label">Do you prefer working alone or in group and what traits you can't handle in people you're working with?
+                        <span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="alone" name="alone" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form  pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="strength" class="form-label">What are your strengths and weaknesses?<span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="strength" name="strength" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+                </div>
+                <div class="form  pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="priorities" class="form-label">How do you manage priorities to meet deadlines?
+                        <span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="priorities" name="priorities" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+                </div>
+                <div class="form  pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="extraordinary" class="form-label">Give us example about a problem you solved in an extraordinary way
+                        <span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="extraordinary" name="extraordinary" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+                </div>
+                <div class="form  pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="role" class="form-label">Who impacted your life and how?
+                        <span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="role" name="role" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="problem" class="form-label">What is the major social, environmental or economic problem that we are facing in our country in your opinion? and how to solve it in entrepreneurial approach?<span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="problem" name="problem" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+                </div>
+                <div class="form  pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="project" class="form-label">Your sponsor made you two offers: 1-Get a S1 million cash and invest in an existing project. 2- Get $2 million cash and invest in a totally new project. What would you choose? And why?<span> *</span></label>
+                    <textarea class="form-control rounded-3 mb-5" id="project" name="project" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
+                    </div>
+                </div>
+                <div class="form  pe-5 ps-5 mt-4 rounded-3">
+                    <div class="mb-2">
+                    <label for="ask" class="form-label">Now its your turn to ask Enactus Mansoura a question!</label>
+                    <textarea class="form-control rounded-3 mb-5" id="ask" name="ask" rows="2" oninput="auto_grow2(this)" placeholder="Ask us a question"></textarea>
+                    </div>
+                    <div class="button"><button type="submit" class="btn rounded-5">Submit</button></div>
+                    </div>
+                </form>          
+            </div>
+
+            <div class="button">
+            <div class="bott">
+                <p>Sponsored By</p>
+                <div class="social" id="contact">
+                   <!-- <a href="https://instagram.com/enactusmans/" target="_blank"><img src="assets/instagram.png" alt=""></a>
+                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="assets/facebook.png" alt=""></a>
+                   <a href="https://twitter.com/enactusmans" target="_blank"><img src="assets/twitter.png" alt=""></a> -->
+                   <img src="assets/toastea.svg" alt="">
+                   <img src="assets/toastea.svg" alt="">
+                   <img src="assets/toastea.svg" alt="">
+                   <img src="assets/toastea.svg" alt="">
+                   <img src="assets/toastea.svg" alt="">
+
+
+                </div>
+
+
+            </div>
+            
+        </div>
+        <div class="bar">
+            <p>© All Rights Reserved. Enactus Mansoura.</p>
+        </div>
+    </div>
+
+<script>
+    function auto_grow(element) {
+    element.style.height="auto";
+    element.style.height = (element.scrollHeight+2)+"px";
+    }
+
+    function auto_grow2(element) {
+    element.style.height="auto";
+    element.style.height = (element.scrollHeight+2)+"px";
+    }
+</script>
+  </body>
+</html>
