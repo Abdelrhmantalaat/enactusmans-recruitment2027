@@ -55,7 +55,7 @@ module.exports = async (req, res) => {
     if (Array.isArray(fields)) {
       fields.forEach((chkval) => {
         if (chkval === values[0]) {
-          postData += `entry.754710658="Graphic Design"`;
+          postData += `entry.754710658=${encodeURIComponent("Graphic Design")}`;
         }
         if (chkval === values[1]) {
           postData += `entry.754710658=${encodeURIComponent("Web Development")}`;
@@ -106,7 +106,7 @@ module.exports = async (req, res) => {
 
       response.on('end', () => {
         // Send success response to client
-        res.status(200).json({ success: true, message: 'Form submitted successfully' });
+        res.status(200).json({ success: true, message: postData });
       });
     });
 
