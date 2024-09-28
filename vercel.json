@@ -1,7 +1,6 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/api/submit", "status": 301, "headers": { "Location": "/" } },
     { "src": "/success.html", "status": 301, "headers": { "Location": "/" } },
     { "src": "/fail.html", "status": 301, "headers": { "Location": "/" } },
     { "src": "/(.*)", "headers": { "X-Robots-Tag": "noindex, nofollow" } }
