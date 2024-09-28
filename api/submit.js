@@ -55,7 +55,7 @@ module.exports = async (req, res) => {
     if (Array.isArray(fields)) {
       fields.forEach((chkval) => {
         if (chkval === values[0]) {
-          postData += `entry.754710658=${encodeURIComponent("Graphic Design")}`;
+          postData += `entry.754710658="Graphic Design"`;
         }
         if (chkval === values[1]) {
           postData += `entry.754710658=${encodeURIComponent("Web Development")}`;
