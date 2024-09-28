@@ -196,7 +196,7 @@
                 <div class="groupcheck">
                     <label class="form-check-label" style="display: block; margin-left: 0;" ><p class="">Are you interested in any of the following fields?<span>*</span><br></p>
                     </label>
-                    <p style="font-weight: 400; color:#5D5D5D">(you can choose more than one)</p>
+                    <p style="font-weight: 400; color:#5D5D5D" >(you can choose more than one)</p>
                     <div class="allskills">
                         <div class="skill" style="width: calc(80%/3);">
                         <input class="form-check-input" type="checkbox" name="fields[]" id="Graphic Design" value="Graphic Design"/>
@@ -337,43 +337,56 @@
         element.style.height = (element.scrollHeight + 2) + "px";
       }
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const radioButtons = document.querySelectorAll('input[name="radio"]');
-            const otherYearField = document.getElementById('other_option_response');
 
-            radioButtons.forEach(function(radio) {
-                radio.addEventListener('change', function() {
-                    if (this.value === '__other_option__') {
-                        otherYearField.classList.remove('hidden');
-                        otherYearField.setAttribute("required","")
-                    } else {
-                        otherYearField.classList.add('hidden');
-                        otherYearField.removeAttribute("required")
-                    }
-                });
-            });
-        });
-    </script>
 
         <script>
-          document.addEventListener('DOMContentLoaded', function() {
-              const otherField = document.getElementById('otherField');
-              const otherFieldInput = document.getElementById('other_field_response');
-  
-              function checkOtherField() {
-                if (otherField.checked) {
-                    otherFieldInput.classList.remove('hidden');
-                    otherFieldInput.setAttribute("required","")
-                } else {
-                    otherFieldInput.classList.add('hidden');
-                    otherFieldInput.removeAttribute("required");
-                }
-            }
+document.addEventListener('DOMContentLoaded', function() {
+    const radioButtons = document.querySelectorAll('input[name="radio"]');
+    const otherYearField = document.getElementById('other_option_response');
 
-            otherField.addEventListener('change', checkOtherField);
-            checkOtherField();
-          });
+    // Function to handle the visibility of the "Other" text field
+    function updateOtherFieldVisibility() {
+        const selectedRadio = Array.from(radioButtons).find(radio => radio.checked);
+        
+        if (selectedRadio && selectedRadio.value === '__other_option__') {
+            otherYearField.classList.remove('hidden');
+            otherYearField.setAttribute("required", "");
+        } else {
+            otherYearField.classList.add('hidden');
+            otherYearField.removeAttribute("required");
+            otherYearField.value = ""; // Clear the input if not selected
+        }
+    }
+
+    // Event listener for radio button changes
+    radioButtons.forEach(function(radio) {
+        radio.addEventListener('change', function() {
+            updateOtherFieldVisibility();
+        });
+    });
+
+    // Check the state of the radio buttons and the input field on page load
+    updateOtherFieldVisibility();
+
+    // Check the state of the "Other" field if applicable
+    const otherField = document.getElementById('otherField');
+    const otherFieldInput = document.getElementById('other_field_response');
+
+    function checkOtherField() {
+        if (otherField.checked) {
+            otherFieldInput.classList.remove('hidden');
+            otherFieldInput.setAttribute("required", "");
+        } else {
+            otherFieldInput.classList.add('hidden');
+            otherFieldInput.removeAttribute("required");
+            otherFieldInput.value = ""; // Clear the input if not selected
+        }
+    }
+
+    otherField.addEventListener('change', checkOtherField);
+    checkOtherField();
+});
+
       </script>
   </body>
 </html>
