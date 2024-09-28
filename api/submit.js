@@ -39,30 +39,32 @@ module.exports = async (req, res) => {
       if (Array.isArray(fields)) {
         fields.forEach((chkval) => {
           if (chkval === values[0]) {
-            checkboxData += `"Graphic Design, "`;
+            checkboxData += "Graphic Design, ";
           }
           if (chkval === values[1]) {
-            checkboxData += `"Web Development, "`;
+            checkboxData += "Web Development, ";
           }
           if (chkval === values[2]) {
-            checkboxData += `"Presentation, "`;
+            checkboxData += "Presentation, ";
           }
           if (chkval === values[3]) {
-            checkboxData += `"Marketing, "`;
+            checkboxData += "Marketing, ";
           }
           if (chkval === values[4]) {
-            checkboxData += `"Photography, "`;
+            checkboxData += "Photography, ";
           }
           if (chkval === values[5]) {
-            checkboxData += `"Fundraising, "`;
+            checkboxData += "Fundraising, ";
           }
           if (chkval === values[6]) {
-            checkboxData += `"Research and Development, "`;
+            checkboxData += "Research and Development, ";
           }
           if (chkval === values[7]) {
-            checkboxData += `"Field Work, "`;
+            checkboxData += "Field Work, ";
           }
         });
+        checkboxData = checkboxData.replace(/, $/, '');
+        checkboxData = checkboxData.replace(/['"]/g, '');
       }
       // Create the data payload
       let postData = querystring.stringify({
