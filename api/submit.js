@@ -61,7 +61,7 @@ module.exports = async (req, res) => {
 
       // Add checkboxes values
       const values = [
-        "Graphic Design", "Web Development", "Presentation", "Marketing",
+        "Graphic Design", "Web development", "Presentation", "Marketing",
         "Photography", "Fundraising", "Research and development", "Field work", "__other_option__"
       ];
 
@@ -72,7 +72,7 @@ module.exports = async (req, res) => {
             postData += `&entry.754710658=${encodeURIComponent("Graphic Design")}`;
           }
           if (chkval === values[1]) {
-            postData += `&entry.754710658=${encodeURIComponent("Web Development")}`;
+            postData += `&entry.754710658=${encodeURIComponent("Web development")}`;
           }
           if (chkval === values[2]) {
             postData += `&entry.754710658=${encodeURIComponent("Presentation")}`;
