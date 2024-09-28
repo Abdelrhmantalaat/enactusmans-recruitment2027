@@ -8,13 +8,13 @@ module.exports = async (req, res) => {
       name, email, date, phone, residency, school, university, faculty, radio,
       other_option_response, whatknow, howknow, interest, volunteer, strength,
       leader, available, rateurself, skillslearn, taskexample, onlineresources,
-      priorities, project, engaging, criticism, ask, fields, other_field_response
+      priorities, project, engaging, criticism, ask, fields = [], other_field_response
     } = req.body;
 
     const dateParts = date.split("-");
 
     // Create the data payload
-    const postData = querystring.stringify({
+    let postData = querystring.stringify({
       "entry.1041785167": name,
       "entry.1542320257": email,
       "entry.1921783901_year": dateParts[0],
@@ -51,36 +51,39 @@ module.exports = async (req, res) => {
       "Photography", "Fundraising", "Research and development", "Field work", "__other_option__"
     ];
 
-    fields.forEach((chkval) => {
-      if (chkval === values[0]) {
-        postData += `&entry.754710658=${encodeURIComponent("Graphic Design")}`;
-      }
-      if (chkval === values[1]) {
-        postData += `&entry.754710658=${encodeURIComponent("Web Development")}`;
-      }
-      if (chkval === values[2]) {
-        postData += `&entry.754710658=${encodeURIComponent("Presentation")}`;
-      }
-      if (chkval === values[3]) {
-        postData += `&entry.754710658=${encodeURIComponent("Marketing")}`;
-      }
-      if (chkval === values[4]) {
-        postData += `&entry.754710658=${encodeURIComponent("Photography")}`;
-      }
-      if (chkval === values[5]) {
-        postData += `&entry.754710658=${encodeURIComponent("Fundraising")}`;
-      }
-      if (chkval === values[6]) {
-        postData += `&entry.754710658=${encodeURIComponent("Research and development")}`;
-      }
-      if (chkval === values[7]) {
-        postData += `&entry.754710658=${encodeURIComponent("Field work")}`;
-      }
-      if (chkval === values[8]) {
-        postData += `&entry.754710658=${encodeURIComponent("__other_option__")}`;
-        postData += `&entry.754710658.other_option_response=${encodeURIComponent(other_field_response)}`;
-      }
-    });
+    // Ensure fields is an array before using forEach
+    if (Array.isArray(fields)) {
+      fields.forEach((chkval) => {
+        if (chkval === values[0]) {
+          postData += `&entry.754710658=${encodeURIComponent("Graphic Design")}`;
+        }
+        if (chkval === values[1]) {
+          postData += `&entry.754710658=${encodeURIComponent("Web Development")}`;
+        }
+        if (chkval === values[2]) {
+          postData += `&entry.754710658=${encodeURIComponent("Presentation")}`;
+        }
+        if (chkval === values[3]) {
+          postData += `&entry.754710658=${encodeURIComponent("Marketing")}`;
+        }
+        if (chkval === values[4]) {
+          postData += `&entry.754710658=${encodeURIComponent("Photography")}`;
+        }
+        if (chkval === values[5]) {
+          postData += `&entry.754710658=${encodeURIComponent("Fundraising")}`;
+        }
+        if (chkval === values[6]) {
+          postData += `&entry.754710658=${encodeURIComponent("Research and development")}`;
+        }
+        if (chkval === values[7]) {
+          postData += `&entry.754710658=${encodeURIComponent("Field work")}`;
+        }
+        if (chkval === values[8]) {
+          postData += `&entry.754710658=${encodeURIComponent("__other_option__")}`;
+          postData += `&entry.754710658.other_option_response=${encodeURIComponent(other_field_response)}`;
+        }
+      });
+    }
 
     // Set up the POST request options
     const options = {
