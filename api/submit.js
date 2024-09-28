@@ -212,16 +212,15 @@ const failPage = `<!DOCTYPE html>
 
         response.on('end', () => {
           // Send success response to client
-          res.setHeader('Content-Type', 'text/html'); // Set content type to HTML
-          res.status(200).send(successPage);
+          res.writeHead(302, { Location: '/success.html' });
         });
       });
 
       request.on('error', (error) => {
         // Handle any errors
         res.setHeader('Content-Type', 'text/html'); // Set content type to HTML
-        res.status(500).send(failPage);
-      });
+        res.writeHead(302, { Location: '/fail.html' });
+    });
 
       // Write the data and end the request
       request.write(postData);
