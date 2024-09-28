@@ -112,7 +112,20 @@ module.exports = async (req, res) => {
         },
       };
 
-      const successPage = `<!DOCTYPE html>
+
+
+      // Make the POST request to Google Forms
+      const request = https.request(options, (response) => {
+        let data = '';
+
+        response.on('data', (chunk) => {
+          data += chunk;
+        });
+
+        response.on('end', () => {
+          // Send success response to client
+          res.writeHead(200, { 'Content-Type': 'text/html' });
+          res.end(`<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -155,9 +168,14 @@ module.exports = async (req, res) => {
     </div>
     
   </body>
-</html>`
+</html>`);
+        });
+      });
 
-const failPage=`<!DOCTYPE html>
+      request.on('error', (error) => {
+        // Handle any errors
+        res.writeHead(500, { 'Content-Type': 'text/html' });
+        res.end(`<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -200,27 +218,7 @@ const failPage=`<!DOCTYPE html>
     </div>
     
   </body>
-</html>`
-
-      // Make the POST request to Google Forms
-      const request = https.request(options, (response) => {
-        let data = '';
-
-        response.on('data', (chunk) => {
-          data += chunk;
-        });
-
-        response.on('end', () => {
-          // Send success response to client
-          res.writeHead(200, { 'Content-Type': 'text/html' });
-          res.end(successPage);
-        });
-      });
-
-      request.on('error', (error) => {
-        // Handle any errors
-        res.writeHead(500, { 'Content-Type': 'text/html' });
-        res.end(failPage);
+</html>`);
       });
 
       // Write the data and end the request
