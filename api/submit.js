@@ -102,11 +102,12 @@ module.exports = async (req, res) => {
 
       response.on('data', (chunk) => {
         data += chunk;
+        console.log(data)
       });
 
       response.on('end', () => {
         // Send success response to client
-        res.status(200).json({ success: true, message: data });
+        res.status(200).json({ success: true, message: 'Form submitted successfully' });
       });
     });
 
