@@ -27,6 +27,47 @@ module.exports = async (req, res) => {
 
       const dateParts = date.split("-");
 
+      // Add checkboxes values
+      const values = [
+        "Graphic Design", "Web development", "Presentation", "Marketing",
+        "Photography", "Fundraising", "Research and development", "Field work", "__other_option__"
+      ];
+
+      // Ensure fields is an array and iterate over it
+      let checkboxData = ""
+
+      if (Array.isArray(fields)) {
+        fields.forEach((chkval) => {
+          if (chkval === values[0]) {
+            checkboxData += `"Graphic Design"`;
+          }
+          if (chkval === values[1]) {
+            checkboxData += `"Web development"`;
+          }
+          if (chkval === values[2]) {
+            checkboxData += `"Presentation"`;
+          }
+          if (chkval === values[3]) {
+            checkboxData += `"Marketing"`;
+          }
+          if (chkval === values[4]) {
+            checkboxData += `"Photography"`;
+          }
+          if (chkval === values[5]) {
+            checkboxData += `"Fundraising"`;
+          }
+          if (chkval === values[6]) {
+            checkboxData += `"Research and development"`;
+          }
+          if (chkval === values[7]) {
+            checkboxData += `"Field work"`;
+          }
+          if (chkval === values[8]) {
+            checkboxData += `&entry.754710658=${encodeURIComponent("__other_option__")}`;
+            checkboxData += `&entry.754710658.other_option_response=${encodeURIComponent(other_field_response)}`;
+          }
+        });
+      }
       // Create the data payload
       let postData = querystring.stringify({
         "entry.1041785167": name,
@@ -56,48 +97,9 @@ module.exports = async (req, res) => {
         "entry.736068933": project,
         "entry.1480818960": engaging,
         "entry.18863860": criticism,
-        "entry.1224952906": ask
+        "entry.1224952906": checkboxData
       });
 
-      // Add checkboxes values
-      const values = [
-        "Graphic Design", "Web development", "Presentation", "Marketing",
-        "Photography", "Fundraising", "Research and development", "Field work", "__other_option__"
-      ];
-
-      // Ensure fields is an array and iterate over it
-      if (Array.isArray(fields)) {
-        fields.forEach((chkval) => {
-          if (chkval === values[0]) {
-            postData += `&entry.754710658=${encodeURIComponent("Graphic Design")}`;
-          }
-          if (chkval === values[1]) {
-            postData += `&entry.754710658=${encodeURIComponent("Web development")}`;
-          }
-          if (chkval === values[2]) {
-            postData += `&entry.754710658=${encodeURIComponent("Presentation")}`;
-          }
-          if (chkval === values[3]) {
-            postData += `&entry.754710658=${encodeURIComponent("Marketing")}`;
-          }
-          if (chkval === values[4]) {
-            postData += `&entry.754710658=${encodeURIComponent("Photography")}`;
-          }
-          if (chkval === values[5]) {
-            postData += `&entry.754710658=${encodeURIComponent("Fundraising")}`;
-          }
-          if (chkval === values[6]) {
-            postData += `&entry.754710658=${encodeURIComponent("Research and development")}`;
-          }
-          if (chkval === values[7]) {
-            postData += `&entry.754710658=${encodeURIComponent("Field work")}`;
-          }
-          if (chkval === values[8]) {
-            postData += `&entry.754710658=${encodeURIComponent("__other_option__")}`;
-            postData += `&entry.754710658.other_option_response=${encodeURIComponent(other_field_response)}`;
-          }
-        });
-      }
 
       // Set up the POST request options
       const options = {
