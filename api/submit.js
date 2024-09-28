@@ -39,32 +39,28 @@ module.exports = async (req, res) => {
       if (Array.isArray(fields)) {
         fields.forEach((chkval) => {
           if (chkval === values[0]) {
-            checkboxData += `"Graphic Design"`;
+            checkboxData += `"Graphic Design, "`;
           }
           if (chkval === values[1]) {
-            checkboxData += `"Web development"`;
+            checkboxData += `"Web Development, "`;
           }
           if (chkval === values[2]) {
-            checkboxData += `"Presentation"`;
+            checkboxData += `"Presentation, "`;
           }
           if (chkval === values[3]) {
-            checkboxData += `"Marketing"`;
+            checkboxData += `"Marketing, "`;
           }
           if (chkval === values[4]) {
-            checkboxData += `"Photography"`;
+            checkboxData += `"Photography, "`;
           }
           if (chkval === values[5]) {
-            checkboxData += `"Fundraising"`;
+            checkboxData += `"Fundraising, "`;
           }
           if (chkval === values[6]) {
-            checkboxData += `"Research and development"`;
+            checkboxData += `"Research and Development, "`;
           }
           if (chkval === values[7]) {
-            checkboxData += `"Field work"`;
-          }
-          if (chkval === values[8]) {
-            checkboxData += `&entry.754710658=${encodeURIComponent("__other_option__")}`;
-            checkboxData += `&entry.754710658.other_option_response=${encodeURIComponent(other_field_response)}`;
+            checkboxData += `"Field Work, "`;
           }
         });
       }
@@ -81,7 +77,7 @@ module.exports = async (req, res) => {
         "entry.1052834700": university,
         "entry.590478216": faculty,
         "entry.881662986": radio,
-        "entry.881662986.other_option_response": other_option_response,
+        "entry.149518962": other_option_response,
         "entry.1603392820": whatknow,
         "entry.2091645574": howknow,
         "entry.1961912970": interest,
@@ -97,7 +93,9 @@ module.exports = async (req, res) => {
         "entry.736068933": project,
         "entry.1480818960": engaging,
         "entry.18863860": criticism,
-        "entry.1224952906": checkboxData
+        "entry.1224952906": ask,
+        "entry.533756903": checkboxData,
+        "entry.149518962":other_field_response
       });
 
 
