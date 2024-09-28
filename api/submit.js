@@ -55,32 +55,32 @@ module.exports = async (req, res) => {
     if (Array.isArray(fields)) {
       fields.forEach((chkval) => {
         if (chkval === values[0]) {
-          postData += `&entry.754710658=${encodeURIComponent("Graphic Design")}`;
+          postData += `entry.754710658=${encodeURIComponent("Graphic Design")}`;
         }
         if (chkval === values[1]) {
-          postData += `&entry.754710658=${encodeURIComponent("Web Development")}`;
+          postData += `entry.754710658=${encodeURIComponent("Web Development")}`;
         }
         if (chkval === values[2]) {
-          postData += `&entry.754710658=${encodeURIComponent("Presentation")}`;
+          postData += `entry.754710658=${encodeURIComponent("Presentation")}`;
         }
         if (chkval === values[3]) {
-          postData += `&entry.754710658=${encodeURIComponent("Marketing")}`;
+          postData += `entry.754710658=${encodeURIComponent("Marketing")}`;
         }
         if (chkval === values[4]) {
-          postData += `&entry.754710658=${encodeURIComponent("Photography")}`;
+          postData += `entry.754710658=${encodeURIComponent("Photography")}`;
         }
         if (chkval === values[5]) {
-          postData += `&entry.754710658=${encodeURIComponent("Fundraising")}`;
+          postData += `entry.754710658=${encodeURIComponent("Fundraising")}`;
         }
         if (chkval === values[6]) {
-          postData += `&entry.754710658=${encodeURIComponent("Research and development")}`;
+          postData += `entry.754710658=${encodeURIComponent("Research and development")}`;
         }
         if (chkval === values[7]) {
-          postData += `&entry.754710658=${encodeURIComponent("Field work")}`;
+          postData += `entry.754710658=${encodeURIComponent("Field work")}`;
         }
         if (chkval === values[8]) {
-          postData += `&entry.754710658=${encodeURIComponent("__other_option__")}`;
-          postData += `&entry.754710658.other_option_response=${encodeURIComponent(other_field_response)}`;
+          postData += `entry.754710658=${encodeURIComponent("__other_option__")}`;
+          postData += `entry.754710658.other_option_response=${encodeURIComponent(other_field_response)}`;
         }
       });
     }
@@ -102,7 +102,6 @@ module.exports = async (req, res) => {
 
       response.on('data', (chunk) => {
         data += chunk;
-        console.log(data)
       });
 
       response.on('end', () => {
