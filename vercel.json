@@ -3,7 +3,6 @@
     "routes": [
       { "src": "/api/submit", "dest": "/api/submit.js" },
       { "src": "/success.html", "status": 301, "headers": { "Location": "/" } },
-      { "src": "/fail.html", "status": 301, "headers": { "Location": "/" } }
     ]
   }
   
