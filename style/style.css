@@ -72,6 +72,10 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   font-size: 14px !important;
 }
 
+#rndlg{
+  width: calc(130%/3);
+}
+
 .ref {
   margin-top: 50px;
   margin-bottom: 70px;
@@ -412,7 +416,7 @@ button {
   }
 
   #rndlg {
-    display: none !important;
+    width: calc(80%/2);
   }
 
   #rndsm {
