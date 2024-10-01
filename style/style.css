@@ -1,20 +1,30 @@
 @font-face {
-  font-family: "thunder";
-  src: url("./fonts/thunder-boldlc-webfont.woff") format("woff");
-  font-weight: bold;
+  font-family: "headingnow";
+  src: url("./fonts/HeadingNow-62Light.woff") format("woff"),
+    url("./fonts/HeadingNow-62Light.woff2") format("woff2");
+  font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "awesome";
-  src: url("./fonts/awesome_serif_var-vf-webfont.woff") format("woff");
-  font-weight: normal;
+  font-family: "headingnow";
+  src: url("./fonts/HeadingNow-64Regular.woff") format("woff"),
+    url("./fonts/HeadingNow-64Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "headingnow";
+  src: url("./fonts/HeadingNow-65Medium.woff") format("woff"),
+    url("./fonts/HeadingNow-65Medium.woff2") format("woff2");
+  font-weight: 500;
   font-style: normal;
 }
 
 * {
-  font-family: "Montserrat";
-  font-weight: 600;
+  font-family: "headingnow";
+  font-weight: 400;
 }
 
 input::-webkit-outer-spin-button,
@@ -49,6 +59,19 @@ textarea {
   align-items: center;
 }
 
+::placeholder {
+  font-size: 14px;
+  color: #adacad !important;
+}
+
+/* placeholder text style */
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  font-size: 14px !important;
+}
+
 .ref {
   margin-top: 50px;
   margin-bottom: 70px;
@@ -81,48 +104,37 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
-  /* min-height: 100vh; */
 }
 
 #status {
   width: 500px;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 #statustxt {
-  margin-top: 50px;
-  font-size: 20px;
-  font-weight: 700;
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 400;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 #logo {
-  width: 500px;
-  margin-bottom: -230px;
-  margin-top: -30px;
+  width: 650px;
+  margin-bottom: -210px;
+  margin-top: 50px;
 }
 
 #fall {
   width: 600px;
 }
 
-#fall {
-  font-family: awesome;
-  text-align: center;
-  font-size: 32px;
-  letter-spacing: 1.5px;
-  background: linear-gradient(83deg, #ffb12b 44.95%, rgba(0, 0, 0, 0) 64.46%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 40px;
-}
 
 #note {
-  font-weight: 700;
-  color: #1841d7;
+  font-weight: 400;
+  color: #a456cf;
   font-size: 20px;
+
 }
 
 #please {
@@ -130,22 +142,16 @@ textarea {
   text-align: center;
   font-weight: 400;
   margin-top: -10px;
-  font-size: 14px;
-}
-
-.main {
-  background-color: #ffffff;
+  font-size: 15px;
 }
 
 .all {
-  background-color: #ffffff;
   margin: auto;
   max-width: 90vw;
   width: 640px;
 }
 
 .form {
-  background-color: white;
 }
 
 h2 {
@@ -204,11 +210,12 @@ input[type="radio"]:active {
 }
 
 .form-label {
-  margin-bottom: 20px !important;
+  margin-bottom: 12px !important;
 }
 
 .form-control {
   margin-bottom: 30px;
+  
 }
 
 button {
@@ -222,9 +229,8 @@ button {
   text-align: center;
   /* margin-top: 50px; */
   margin-bottom: 30px;
-  font-family: "awesome";
-  font-weight: 600 !important;
-  font-size: 20px;
+  font-weight: 500 !important;
+  font-size: 18px;
 }
 
 .btn {
@@ -237,7 +243,7 @@ button {
 
 .bott p {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .social {
@@ -248,8 +254,8 @@ button {
 
 .social img {
   max-width: 25px;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 7px;
+  margin-left: 7px;
 }
 
 .steps {
@@ -257,7 +263,8 @@ button {
   justify-content: center;
   text-align: center;
   gap: 5.5em;
-  margin-top: 58px;
+  margin-top: 48px;
+  margin-bottom: 48px;
 }
 
 .steps-phase {
@@ -268,12 +275,12 @@ button {
 }
 
 .steps-phase-active .steps-phase-num {
-  color: #ffb641;
-  background-color: #fff0d7;
+  color: #a456cf;
+  background-color: #efd9ff;
 }
 
 .steps-phase-active .steps-phase-title {
-  color: #ffb641;
+  color: #a456cf;
 }
 
 .steps-phase-num {
@@ -285,9 +292,8 @@ button {
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
-  font-family: "thunder";
   color: #848484;
-  font-weight: bold;
+  font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -295,17 +301,11 @@ button {
 
 .steps-phase-title {
   font-size: 12px;
+  line-height: 14px;
 }
 
 .bar {
-  background: linear-gradient(
-      90deg,
-      #ffdfab 18.44%,
-      #ffb12b 50.58%,
-      #ffdfab 79.48%
-    ),
-    linear-gradient(90deg, #ffdfab 18.44%, #ffb12b 50.58%, #ffdfab 79.48%),
-    linear-gradient(90deg, #ffdfab 18.44%, #ffb12b 50.58%, #ffdfab 79.48%);
+  background-color: #a456cf;
   width: 100%;
   height: 30px;
   bottom: 0px;
@@ -315,10 +315,9 @@ button {
 }
 
 .bar p {
-  font-family: "awesome";
   font-size: 12px;
   color: #fff;
-  letter-spacing: 1.2px;
+  letter-spacing: 0.8px;
   margin: 0px !important;
 }
 
@@ -331,11 +330,12 @@ button {
     letter-spacing: 0px;
   }
   .steps {
-    margin-top: 55px;
+    margin-top: 40px;
     gap: 1em;
+    margin-bottom: 28px;
   }
   #note {
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .bott {
@@ -348,7 +348,7 @@ button {
   }
 
   .ref {
-    margin-bottom: 40px;
+    margin-bottom: 0px;
   }
 
   #ill {
@@ -356,17 +356,9 @@ button {
     margin-bottom: -30;
   }
 
-  #fall {
-    width: 366px;
-    margin-top: -9px;
-    background: linear-gradient(83deg, #ffb12b 45.95%, rgba(0, 0, 0, 0) 71.46%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
   #logo {
-    width: 80%;
-    margin-bottom: -123px;
+    width: 100%;
+    margin-bottom: -120px;
   }
 
   h2 {
@@ -445,10 +437,6 @@ button {
     font-size: 16px;
   }
 
-  .button {
-    /* margin-top: 96px; */
-  }
-
   #btn {
     margin-top: 30px;
   }
@@ -460,4 +448,11 @@ button {
 
 .hidden {
   display: none;
+}
+
+body {
+  /* background-image: url(../assets/bg.jpg); */
+  position: relative;
+  overflow-x: hidden;
+  background-color: #ffffff;
 }
