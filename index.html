@@ -186,42 +186,44 @@
                     </label>
                     <p style="font-weight: 400; margin-top:-14px; color:#5D5D5D" >(you can choose more than one)</p>
                     <div class="allskills">
+                      <input type="text" id="required-checkbox" style="display:none" required />
+
                         <div class="skill" style="width: calc(80%/3);">
                         <input class="form-check-input" type="checkbox" name="fields[]" id="Graphic Design" value="Graphic Design" required/>
                         <label class="form-check-label" for="Graphic Design">Graphic Design</label></div>
 
                         <div class="skill">
-                        <input class="form-check-input" type="checkbox" name="fields[]" id="Web" value="Web development"/>
+                        <input class="form-check-input" type="checkbox" name="fields[]" id="Web" value="Web development" required/>
                         <label class="form-check-label" for="Web">ًWeb Development</label></div>
                         
                         <div class="skill" style="width: calc(80%/3);">
-                        <input class="form-check-input" type="checkbox" name="fields[]" id="Presentation" value="Presentation"/>
+                        <input class="form-check-input" type="checkbox" name="fields[]" id="Presentation" value="Presentation" required/>
                         <label class="form-check-label" for="Presentation">Presentation</label></div>
 
                         <div class="skill" style="width: calc(80%/3);">
-                        <input class="form-check-input" type="checkbox" name="fields[]" id="Marketing" value="Marketing"/>
+                        <input class="form-check-input" type="checkbox" name="fields[]" id="Marketing" value="Marketing" required/>
                         <label class="form-check-label" for="Marketing">Marketing</label></div>
 
                         <div class="skill" style="width: calc(80%/3);">
-                        <input class="form-check-input" type="checkbox" name="fields[]" id="Photography" value="Photography"/>
+                        <input class="form-check-input" type="checkbox" name="fields[]" id="Photography" value="Photography" required/>
                         <label class="form-check-label" for="Photography">Photography</label></div>
 
 
                         <div class="skill" style="width: calc(80%/3);">
-                            <input class="form-check-input" type="checkbox" name="fields[]" id="Fundraising" value="Fundraising"/>
+                            <input class="form-check-input" type="checkbox" name="fields[]" id="Fundraising" value="Fundraising" required/>
                             <label class="form-check-label" for="Fundraising">Fundraising</label></div>
 
                             <div class="skill" id="rndlg" style="width: calc(130%/3); ">
-                                <input class="form-check-input" type="checkbox" name="fields[]" id="Research and development" value="Research and development"/>
+                                <input class="form-check-input" type="checkbox" name="fields[]" id="Research and development" value="Research and development" required/>
                                 <label class="form-check-label" for="Research and development">Research and<br style="display: none;"> Development</label></div>
     
     
                                 <div class="skill" id="rndsm" style="width: calc(130%/3);display: none;">
-                                    <input class="form-check-input" type="checkbox" name="fields[]" id="Research and development" value="Research and development"/>
+                                    <input class="form-check-input" type="checkbox" name="fields[]" id="Research and development" value="Research and development" required/>
                                     <label class="form-check-label" for="Research and development">Research and<br style="display: none;"> Development</label></div>
                             
                         <div class="skill" style="width: calc(80%/3);">
-                        <input class="form-check-input" type="checkbox" name="fields[]" id="Field Work" value="Field work"/>
+                        <input class="form-check-input" type="checkbox" name="fields[]" id="Field Work" value="Field work" required/>
                         <label class="form-check-label" for="Field Work">Field Work</label></div>
 
                         <div class="skill" style="width: calc(80%/3);">
@@ -373,6 +375,47 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
       </script>
+
+<script>
+  // Listen to changes on any checkbox in the form
+  document.querySelectorAll('input[name="fields[]"]').forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+      var checkboxes = document.querySelectorAll('input[name="fields[]"]');
+      var isChecked = Array.prototype.slice.call(checkboxes).some(function(checkbox) {
+        return checkbox.checked;
+      });
+
+      // If any checkbox is checked, remove the 'required' attribute from the first one
+      if (isChecked) {
+        checkboxes[0].removeAttribute('required');
+        checkboxes[1].removeAttribute('required');
+        checkboxes[2].removeAttribute('required');
+        checkboxes[3].removeAttribute('required');
+        checkboxes[4].removeAttribute('required');
+        checkboxes[5].removeAttribute('required');
+        checkboxes[6].removeAttribute('required');
+        checkboxes[7].removeAttribute('required');
+        checkboxes[8].removeAttribute('required');
+
+
+      } else {
+        checkboxes[0].setAttribute('required', 'required'); 
+        checkboxes[1].setAttribute('required', 'required'); 
+        checkboxes[2].setAttribute('required', 'required'); 
+        checkboxes[3].setAttribute('required', 'required'); 
+        checkboxes[4].setAttribute('required', 'required'); 
+        checkboxes[5].setAttribute('required', 'required'); 
+        checkboxes[6].setAttribute('required', 'required'); 
+        checkboxes[7].setAttribute('required', 'required'); 
+        checkboxes[8].setAttribute('required', 'required'); 
+
+      }
+    });
+  });
+</script>
+
+
+
 
 <script>
   document.getElementById('form').addEventListener('submit', function(event) {
