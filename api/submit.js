@@ -1,40 +1,70 @@
-const https = require('https');
-const querystring = require('querystring');
+const https = require("https");
+const querystring = require("querystring");
 
 module.exports = async (req, res) => {
-  if (req.method === 'POST') {
-    let body = '';
+  if (req.method === "POST") {
+    let body = "";
 
     // Collect incoming data
-    req.on('data', chunk => {
+    req.on("data", (chunk) => {
       body += chunk.toString(); // Convert the Buffer to a string
     });
 
     // Process the complete body once it's fully received
-    req.on('end', () => {
+    req.on("end", () => {
       // Parse the form data (urlencoded)
       const parsedBody = querystring.parse(body);
 
       const {
-        name, email, date, phone, residency, school, university, faculty, radio,
-        other_option_response, whatknow, howknow, interest, volunteer, strength,
-        leader, available, rateurself, skillslearn, taskexample, onlineresources,
-        priorities, project, engaging, criticism, ask, other_field_response
+        name,
+        email,
+        date,
+        phone,
+        residency,
+        school,
+        university,
+        faculty,
+        radio,
+        other_option_response,
+        whatknow,
+        howknow,
+        interest,
+        volunteer,
+        strength,
+        leader,
+        available,
+        rateurself,
+        skillslearn,
+        taskexample,
+        onlineresources,
+        priorities,
+        project,
+        engaging,
+        criticism,
+        ask,
+        other_field_response,
       } = parsedBody;
 
       // Handle the checkboxes 'fields[]'
-      const fields = parsedBody['fields[]'] || []; // If no fields are selected, it will be undefined
+      const fields = parsedBody["fields[]"] || []; // If no fields are selected, it will be undefined
 
       const dateParts = date.split("-");
 
       // Add checkboxes values
       const values = [
-        "Graphic Design", "Web development", "Presentation", "Marketing",
-        "Photography", "Fundraising", "Research and development", "Field work", "__other_option__"
+        "Graphic Design",
+        "Web development",
+        "Presentation",
+        "Marketing",
+        "Photography",
+        "Fundraising",
+        "Research and development",
+        "Field work",
+        "__other_option__",
       ];
 
       // Ensure fields is an array and iterate over it
-      let checkboxData = ""
+      let checkboxData = "";
 
       if (Array.isArray(fields)) {
         fields.forEach((chkval) => {
@@ -63,8 +93,8 @@ module.exports = async (req, res) => {
             checkboxData += "Field Work, ";
           }
         });
-        checkboxData = checkboxData.replace(/, $/, '');
-        checkboxData = checkboxData.replace(/['"]/g, '');
+        checkboxData = checkboxData.replace(/, $/, "");
+        checkboxData = checkboxData.replace(/['"]/g, "");
       }
       // Create the data payload
       let postData = querystring.stringify({
@@ -97,21 +127,50 @@ module.exports = async (req, res) => {
         "entry.18863860": criticism,
         "entry.1224952906": ask,
         "entry.533756903": checkboxData,
-        "entry.149518962":other_field_response
+        "entry.149518962": other_field_response,
       });
-
 
       // Set up the POST request options
       const options = {
-        hostname: 'docs.google.com',
-        path: '/forms/d/1Y9L-q9jUNSRzuyoIB1NAYwyajjvdVb8646QClvHWJmc/formResponse',
-        method: 'POST',
+        hostname: "docs.google.com",
+        path: "/forms/d/1Y9L-q9jUNSRzuyoIB1NAYwyajjvdVb8646QClvHWJmc/formResponse",
+        method: "POST",
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Length': Buffer.byteLength(postData),
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Length": Buffer.byteLength(postData),
         },
       };
 
+      // Make the POST request to Google Forms
+      const request = https.request(options, (response) => {
+        let data = "";
+
+        response.on("data", (chunk) => {
+          data += chunk;
+        });
+
+        response.on("end", () => {
+          // Send success response to client
+          res.setHeader("Content-Type", "text/html"); // Set content type to HTML
+          res.status(200).send(successPage);
+        });
+      });
+
+      request.on("error", (error) => {
+        // Handle any errors
+        res.setHeader("Content-Type", "text/html"); // Set content type to HTML
+        res.status(500).send(failPage);
+      });
+
+      // Write the data and end the request
+      request.write(postData);
+      request.end();
+    });
+  } else {
+    // Return 405 if not POST method
+    res.status(405).json({ message: "Method Not Allowed" });
+  }
+};
 
 const successPage = `<!DOCTYPE html>
 <html lang="en">
@@ -119,12 +178,9 @@ const successPage = `<!DOCTYPE html>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Success! - Enactus Mansoura</title>
+    <title>Success! - Enactus Mansoura University</title>
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="style/bootstrap.min.css" rel="stylesheet">
 <script src="script/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="style/style.css?v=2">
@@ -136,8 +192,9 @@ const successPage = `<!DOCTYPE html>
       
 
         <img id="status" src="assets/success.svg" alt="">
-        <p id="statustxt">Your application was successfully <br>submitted</p>
-        <!-- <div class="button">
+        <p id="statustxt">Thank you for your interest in joining us!</p>
+
+                <div class="button">
             <div class="bott">
                 <p>Follow Us</p>
                 <div class="social" id="contact">
@@ -147,29 +204,29 @@ const successPage = `<!DOCTYPE html>
 
                 </div>
             </div>
-        </div> -->
+        </div>
+
+
+        <div class="bar" style="position: absolute; bottom: 0;">
+            <p>© 2024 Enactus Mansoura University</p>
+          </div>
+        </div>
     </div>
-    <div class="bar" style="position: fixed;
-    ">
-      <p>© All Rights Reserved. Enactus Mansoura.</p>
-    </div>
-    </div>
+
+
     
   </body>
-</html>`
+</html>`;
 
-const failPage = `<!DOCTYPE html>
+      const failPage = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Failure! - Enactus Mansoura</title>
+    <title>Failure! - Enactus Mansoura University</title>
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <link href="style/bootstrap.min.css" rel="stylesheet">
 <script src="script/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="style/style.css?v=2">
@@ -182,7 +239,7 @@ const failPage = `<!DOCTYPE html>
 
         <img id="status" src="assets/failure.svg" alt="">
         <p id="statustxt">Please try again</p>
-        <!-- <div class="button">
+        <div class="button">
             <div class="bott">
                 <p>Follow Us</p>
                 <div class="social" id="contact">
@@ -192,43 +249,12 @@ const failPage = `<!DOCTYPE html>
 
                 </div>
             </div>
-        </div> -->
+        </div>
     </div>
-    <div class="bar" style="position: fixed;
-    ">
-      <p>© All Rights Reserved. Enactus Mansoura.</p>
-    </div>
+    <div class="bar" style="position: absolute; bottom: 0;">
+        <p>© 2024 Enactus Mansoura University</p>
+      </div>
     </div>
     
   </body>
-</html>`
-      // Make the POST request to Google Forms
-      const request = https.request(options, (response) => {
-        let data = '';
-
-        response.on('data', (chunk) => {
-          data += chunk;
-        });
-
-        response.on('end', () => {
-          // Send success response to client
-          res.setHeader('Content-Type', 'text/html'); // Set content type to HTML
-          res.status(200).send(successPage);
-        });
-      });
-
-      request.on('error', (error) => {
-        // Handle any errors
-      res.setHeader('Content-Type', 'text/html'); // Set content type to HTML
-        res.status(500).send(failPage);
-      });
-
-      // Write the data and end the request
-      request.write(postData);
-      request.end();
-    });
-  } else {
-    // Return 405 if not POST method
-    res.status(405).json({ message: 'Method Not Allowed' });
-  }
-};
+</html>`;
