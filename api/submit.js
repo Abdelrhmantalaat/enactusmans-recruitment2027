@@ -191,16 +191,16 @@ const successPage = `<!DOCTYPE html>
     <div class="heading" style=" min-height: 100vh;">
       
 
-        <img id="status" src="assets/success.svg" alt="">
+        <img id="status" src="https://apply.enactus-mans.live/assets/success.svg" alt="">
         <p id="statustxt">Thank you for your interest in joining us!</p>
 
                 <div class="button">
             <div class="bott">
                 <p>Follow Us</p>
                 <div class="social" id="contact">
-                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="assets/instagram.png" alt=""></a>
-                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="assets/facebook.png" alt=""></a>
-                   <a href="https://twitter.com/enactusmans" target="_blank"><img src="assets/twitter.png" alt=""></a>
+                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://apply.enactus-mans.live/assets/instagram.png" alt=""></a>
+                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://apply.enactus-mans.live/assets/facebook.png" alt=""></a>
+                   <a href="https://twitter.com/enactusmans" target="_blank"><img src="https://apply.enactus-mans.live/assets/twitter.png" alt=""></a>
 
                 </div>
             </div>
@@ -237,15 +237,15 @@ const successPage = `<!DOCTYPE html>
     <div class="heading" style=" min-height: 100vh;">
       
 
-        <img id="status" src="assets/failure.svg" alt="">
+        <img id="status" src="https://apply.enactus-mans.live/assets/failure.svg" alt="">
         <p id="statustxt">Please try again</p>
         <div class="button">
             <div class="bott">
                 <p>Follow Us</p>
                 <div class="social" id="contact">
-                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="assets/instagram.png" alt=""></a>
-                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="assets/facebook.png" alt=""></a>
-                   <a href="https://twitter.com/enactusmans" target="_blank"><img src="assets/twitter.png" alt=""></a>
+                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://apply.enactus-mans.live/assets/instagram.png" alt=""></a>
+                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://apply.enactus-mans.live/assets/facebook.png" alt=""></a>
+                   <a href="https://twitter.com/enactusmans" target="_blank"><img src="https://apply.enactus-mans.live/assets/twitter.png" alt=""></a>
 
                 </div>
             </div>
