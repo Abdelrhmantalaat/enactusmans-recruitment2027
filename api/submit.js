@@ -109,7 +109,7 @@ module.exports = async (req, res) => {
         "entry.1052834700": university,
         "entry.590478216": faculty,
         "entry.881662986": radio,
-        "entry.149518962": other_option_response,
+        "entry.881662986.other_option_response": other_option_response,
         "entry.1603392820": whatknow,
         "entry.2091645574": howknow,
         "entry.1961912970": interest,
