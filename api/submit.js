@@ -168,9 +168,9 @@ module.exports = async (req, res) => {
         });
 
         response.on("end", () => {
-          // Send success response to client
-          res.setHeader("Content-Type", "text/html"); // Set content type to HTML
-          res.status(200).send(successPage);
+          // Send the response from Google Forms back to client
+          res.setHeader("Content-Type", "text/html");
+          res.status(response.statusCode).send(data);
         });
       });
 
