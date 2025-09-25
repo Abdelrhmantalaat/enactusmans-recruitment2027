@@ -151,7 +151,7 @@ module.exports = async (req, res) => {
       // Set up the POST request options
       const options = {
         hostname: "docs.google.com",
-        path: "/forms/d/e/1FAIpQLSfLVqhDO0IHMojP_GVFda7Nd74u-Dvmex32FPq0OffpnIlQnw/formResponse",
+        path: "forms/u/0/d/e/1FAIpQLSfLVqhDO0IHMojP_GVFda7Nd74u-Dvmex32FPq0OffpnIlQnw/formResponse",
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
