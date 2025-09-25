@@ -66,6 +66,11 @@
                 <input type="text" class="form-control rounded-3" id="residency" name="residency" placeholder="Enter your city of residency" required />
               </div>
 
+              <div class="mb-2">
+                <label for="instagram" class="form-label form-label-without">Instagram URL<span>*</span></label>
+                <input type="text" class="form-control rounded-3" id="instagram" name="instagram" placeholder="Enter your Instagram URL" required />
+              </div>
+
             <!-- Academic Questions Section -->
             <div class="steps">
               <div class="steps-phase">
@@ -176,8 +181,23 @@
             </div>
 
             <div class="mb-2">
+                <label for="leadershipRole" class="form-label mt-3">If you are working in a team, how do you decide when to step into a leadership role?<span> *</span></label>
+                <textarea class="form-control rounded-3 mb-5" id="leadershipRole" name="leadershipRole" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question"  required></textarea>
+            </div>
+
+            <div class="mb-2">
+                <label for="leaderBalance" class="form-label mt-3">If you’re a leader, how do you balance being a leader while also listening to and incorporating other perspectives?<span> *</span></label>
+                <textarea class="form-control rounded-3 mb-5" id="leaderBalance" name="leaderBalance" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question"  required></textarea>
+            </div>
+
+            <div class="mb-2">
                 <label for="available" class="form-label mt-3">What is your current availability in terms of hours per week or days, and how flexible are you with your schedule?<span> *</span></label>
                 <textarea class="form-control rounded-3 mb-5" id="available" name="available" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required ></textarea>
+            </div>
+
+            <div class="mb-2">
+                <label for="responsibilities" class="form-label mt-3">Do you have any current responsibilities (work, other activities)?<span> *</span></label>
+                <textarea class="form-control rounded-3 mb-5" id="responsibilities" name="responsibilities" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required ></textarea>
             </div>
 
             <div class="">
@@ -198,6 +218,10 @@
                         <div class="skill" style="width: calc(80%/3);">
                         <input class="form-check-input" type="checkbox" name="fields[]" id="Presentation" value="Presentation" required/>
                         <label class="form-check-label" for="Presentation">Presentation</label></div>
+
+                        <div class="skill" style="width: calc(80%/3);">
+                        <input class="form-check-input" type="checkbox" name="fields[]" id="Trainer" value="Trainer" required/>
+                        <label class="form-check-label" for="Trainer">Sessions Trainer</label></div>
 
                         <div class="skill" style="width: calc(80%/3);">
                         <input class="form-check-input" type="checkbox" name="fields[]" id="Marketing" value="Marketing" required/>
@@ -240,6 +264,21 @@
                 <textarea class="form-control rounded-3 mb-5" id="skillslearn" name="skillslearn" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required ></textarea>
                 </div>
             </div>
+
+            <div >
+                <div class="mb-2">
+                <label for="newskills" class="form-label">How do you approach learning new skills, especially when they are outside your comfort zone?<span> *</span></label>
+                <textarea class="form-control rounded-3 mb-5" id="newskills" name="newskills" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required ></textarea>
+                </div>
+            </div>
+
+            <div >
+                <div class="mb-2">
+                <label for="researchskills" class="form-label">How would you describe your research skills? Can you share a time when you conducted research to solve a problem or complete a task?<span> *</span></label>
+                <textarea class="form-control rounded-3 mb-5" id="researchskills" name="researchskills" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required ></textarea>
+                </div>
+            </div>
+
             <div >
                 <div class="mb-2">
                 <label for="taskexample" class="form-label">Give us an example of a task/interest you worked on where you had to search for information and be resourceful. (Elaborate the steps you took)<span> *</span></label>
@@ -275,6 +314,13 @@
                 <div class="mb-2">
                 <label for="criticism" class="form-label">How do you handle criticism or feedback?<span> *</span></label>
                 <textarea class="form-control rounded-3 mb-5" id="criticism" name="criticism" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required ></textarea>
+                </div>
+            </div>
+
+            <div >
+                <div class="mb-2">
+                <label for="excited" class="form-label">If your whole team is excited about an idea, you think it won’t work. What would you do?<span> *</span></label>
+                <textarea class="form-control rounded-3 mb-5" id="excited" name="excited" rows="4" oninput="auto_grow(this)" placeholder="Please answer the question" required ></textarea>
                 </div>
             </div>
             

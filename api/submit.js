@@ -21,6 +21,7 @@ module.exports = async (req, res) => {
         date,
         phone,
         residency,
+        instagram,
         school,
         university,
         faculty,
@@ -32,15 +33,21 @@ module.exports = async (req, res) => {
         volunteer,
         strength,
         leader,
+        leadershipRole,
+        leaderBalance,
         available,
+        responsibilities,
         rateurself,
         skillslearn,
+        newskills,
+        researchskills,
         taskexample,
         onlineresources,
         priorities,
         project,
         engaging,
         criticism,
+        excited,
         ask,
         other_field_response,
       } = parsedBody;
@@ -55,6 +62,7 @@ module.exports = async (req, res) => {
         "Graphic Design",
         "Web development",
         "Presentation",
+        "Sessions Trainer",
         "Marketing",
         "Photography",
         "Fundraising",
@@ -78,18 +86,21 @@ module.exports = async (req, res) => {
             checkboxData += "Presentation, ";
           }
           if (chkval === values[3]) {
-            checkboxData += "Marketing, ";
+            checkboxData += "Sessions Trainer, ";
           }
           if (chkval === values[4]) {
-            checkboxData += "Photography, ";
+            checkboxData += "Marketing, ";
           }
           if (chkval === values[5]) {
-            checkboxData += "Fundraising, ";
+            checkboxData += "Photography, ";
           }
           if (chkval === values[6]) {
-            checkboxData += "Research and Development, ";
+            checkboxData += "Fundraising, ";
           }
           if (chkval === values[7]) {
+            checkboxData += "Research and Development, ";
+          }
+          if (chkval === values[8]) {
             checkboxData += "Field Work, ";
           }
         });
@@ -98,36 +109,43 @@ module.exports = async (req, res) => {
       }
       // Create the data payload
       let postData = querystring.stringify({
-        "entry.1041785167": name,
-        "entry.1542320257": email,
-        "entry.1921783901_year": dateParts[0],
-        "entry.1921783901_month": dateParts[1],
-        "entry.1921783901_day": dateParts[2],
-        "entry.1034888980": phone,
-        "entry.969657102": residency,
-        "entry.1442446771": school,
-        "entry.1052834700": university,
-        "entry.590478216": faculty,
-        "entry.881662986": radio,
-        "entry.881662986.other_option_response": other_option_response,
-        "entry.1603392820": whatknow,
-        "entry.2091645574": howknow,
-        "entry.1961912970": interest,
-        "entry.2005818525": volunteer,
-        "entry.1267060927": strength,
-        "entry.1033467631": leader,
-        "entry.1043994900": available,
-        "entry.986324613": rateurself,
-        "entry.1550371383": skillslearn,
-        "entry.1725474681": taskexample,
-        "entry.1606644202": onlineresources,
-        "entry.2035339081": priorities,
-        "entry.736068933": project,
-        "entry.1480818960": engaging,
-        "entry.18863860": criticism,
-        "entry.1224952906": ask,
-        "entry.533756903": checkboxData,
-        "entry.149518962": other_field_response,
+        "entry.226913857": name,
+        "entry.2081579804": email,
+        "entry.237350523_year": dateParts[0],
+        "entry.237350523_month": dateParts[1],
+        "entry.237350523_day": dateParts[2],
+        "entry.2081579804": phone,
+        "entry.1353136778": residency,
+        "entry.416320931": instagram,
+        "entry.1207179881": school,
+        "entry.2254370": university,
+        "entry.1877000918": faculty,
+        "entry.186073311": radio,
+        "entry.186073311.other_option_response": other_option_response,
+        "entry.323024726": whatknow,
+        "entry.61761973": howknow,
+        "entry.1535046649": interest,
+        "entry.1503551755": volunteer,
+        "entry.1509395968": strength,
+        "entry.359773790": leader,
+        "entry.739317209": leadershipRole,
+        "entry.1150687452": leaderBalance,
+        "entry.1319878197": available,
+        "entry.1994962965": responsibilities,
+        "entry.1261486210": rateurself,
+        "entry.1866108043": skillslearn,
+        "entry.1050127696": newskills,
+        "entry.1672324758": researchskills,
+        "entry.226143631": taskexample,
+        "entry.581162371": onlineresources,
+        "entry.1724899656": priorities,
+        "entry.309251967": project,
+        "entry.571747934": engaging,
+        "entry.34927441": criticism,
+        "entry.1139972872": excited,
+        "entry.1380734089": ask,
+        "entry.1588840401": checkboxData,
+        "entry.1588840401": other_field_response,
       });
 
       // Set up the POST request options
@@ -218,7 +236,7 @@ const successPage = `<!DOCTYPE html>
   </body>
 </html>`;
 
-      const failPage = `<!DOCTYPE html>
+const failPage = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
