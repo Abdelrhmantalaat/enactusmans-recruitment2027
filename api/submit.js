@@ -114,7 +114,7 @@ module.exports = async (req, res) => {
         "entry.237350523_year": dateParts[0],
         "entry.237350523_month": dateParts[1],
         "entry.237350523_day": dateParts[2],
-        "entry.2081579804": phone,
+        "entry.1085630826": phone,
         "entry.1353136778": residency,
         "entry.416320931": instagram,
         "entry.1207179881": school,
@@ -144,8 +144,8 @@ module.exports = async (req, res) => {
         "entry.34927441": criticism,
         "entry.1139972872": excited,
         "entry.1380734089": ask,
-        "entry.1588840401": checkboxData,
-        "entry.1588840401": other_field_response,
+        "entry.1658984132": checkboxData,
+        "entry.1658984132.other_option_response": other_field_response,
       });
 
       // Set up the POST request options
@@ -168,9 +168,9 @@ module.exports = async (req, res) => {
         });
 
         response.on("end", () => {
-          // Send the response from Google Forms back to client
-          res.setHeader("Content-Type", "text/html");
-          res.status(response.statusCode).send(data);
+          // Send success response to client
+          res.setHeader("Content-Type", "text/html"); // Set content type to HTML
+          res.status(200).send(successPage);
         });
       });
 
