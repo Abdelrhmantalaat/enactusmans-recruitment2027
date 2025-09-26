@@ -218,7 +218,7 @@ const successPage = `<!DOCTYPE html>
                 <div class="social" id="contact">
                    <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://apply.enactusmu.live/assets/instagram.png" alt=""></a>
                    <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://apply.enactusmu.live/assets/facebook.png" alt=""></a>
-                   <a href="https://twitter.com/enactusmans" target="_blank"><img src="https://apply.enactusmu.live/assets/twitter.png" alt=""></a>
+                   <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://apply.enactusmu.live/assets/tiktok.png" alt=""></a>
 
                 </div>
             </div>
@@ -263,7 +263,7 @@ const failPage = `<!DOCTYPE html>
                 <div class="social" id="contact">
                    <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://apply.enactusmu.live/assets/instagram.png" alt=""></a>
                    <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://apply.enactusmu.live/assets/facebook.png" alt=""></a>
-                   <a href="https://twitter.com/enactusmans" target="_blank"><img src="https://apply.enactusmu.live/assets/twitter.png" alt=""></a>
+                   <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://apply.enactusmu.live/assets/tiktok.png" alt=""></a>
 
                 </div>
             </div>
