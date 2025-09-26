@@ -226,7 +226,7 @@ const successPage = `<!DOCTYPE html>
 
 
         <div class="bar" style="position: absolute; bottom: 0;">
-            <p>© 2025 Enactus Mansoura University</p>
+            <p>© 2026 Enactus Mansoura University</p>
           </div>
         </div>
     </div>
@@ -270,7 +270,7 @@ const failPage = `<!DOCTYPE html>
         </div>
     </div>
     <div class="bar" style="position: absolute; bottom: 0;">
-        <p>© 2025 Enactus Mansoura University</p>
+        <p>© 2026 Enactus Mansoura University</p>
       </div>
     </div>
     
