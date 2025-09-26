@@ -145,7 +145,7 @@ module.exports = async (req, res) => {
         "entry.1139972872": excited,
         "entry.1380734089": ask,
         "entry.1658984132": checkboxData,
-        "entry.1658984132.other_option_response": other_field_response,
+        "entry.577264316": other_field_response,
       });
 
       // Set up the POST request options
