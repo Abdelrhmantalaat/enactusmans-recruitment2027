@@ -116,8 +116,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   justify-content: center;
   margin-bottom: 20px;
   background-color: #3572fc;
-  background-image: url("/assets/texture.png");
-  background-blend-mode: difference;
 }
 
 #status {
@@ -260,7 +258,9 @@ button {
 
 .social {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-bottom: 15px;
 }
 
