@@ -37,7 +37,7 @@ input:hover,
 input:focus,
 textarea:hover,
 textarea:focus {
-  border-color: #ffb12b !important;
+  border-color: #e6d303 !important;
   box-shadow: none !important;
 }
 
@@ -135,7 +135,7 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 
 #note {
   font-weight: 400;
-  color: #a456cf;
+  color: #265efc;
   font-size: 20px;
 }
 
@@ -166,7 +166,7 @@ label {
 }
 
 label span {
-  color: #ffc448;
+  color: #e6d303;
 }
 
 input,
@@ -189,11 +189,11 @@ input[type="radio"] {
 
 input[type="radio"]:focus,
 input[type="radio"]:active {
-  border-color: #ffc448 !important;
+  border-color: #e6d303 !important;
 }
 
 .form-check-input:checked {
-  background-color: #ffc448;
+  background-color: #e6d303;
 }
 
 .skill {
@@ -221,7 +221,7 @@ input[type="radio"]:active {
 
 button {
   width: 150px;
-  background-color: #ffb641 !important;
+  background-color: #e6d303 !important;
   color: white !important;
 }
 
@@ -282,12 +282,12 @@ button {
 }
 
 .steps-phase-active .steps-phase-num {
-  color: #a456cf;
-  background-color: #efd9ff;
+  color: #265efc;
+  background-color: #d4dfff;
 }
 
 .steps-phase-active .steps-phase-title {
-  color: #a456cf;
+  color: #265efc;
 }
 
 .steps-phase-num {
@@ -312,7 +312,7 @@ button {
 }
 
 .bar {
-  background-color: #a456cf;
+  background-color: #265efc;
   width: 100%;
   height: 30px;
   bottom: 0px;
