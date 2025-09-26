@@ -270,6 +270,10 @@ button {
   margin-left: 7px;
 }
 
+#fankoo{
+  max-width: 80px;
+}
+
 #main-sponsor {
   max-width: 90px;
   margin-bottom: -10px;
@@ -357,6 +361,10 @@ button {
     margin-right: 7px;
     margin-left: 7px;
   }
+
+  #fankoo{
+  max-width: 64px;
+}
 
   #main-sponsor {
     max-width: 70px;
