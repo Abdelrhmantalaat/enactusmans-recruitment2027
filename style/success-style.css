@@ -1,0 +1,285 @@
+@font-face {
+  font-family: "headingnow";
+  src: url("./fonts/HeadingNow-62Light.woff") format("woff"),
+    url("./fonts/HeadingNow-62Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "headingnow";
+  src: url("./fonts/HeadingNow-64Regular.woff") format("woff"),
+    url("./fonts/HeadingNow-64Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "headingnow";
+  src: url("./fonts/HeadingNow-65Medium.woff") format("woff"),
+    url("./fonts/HeadingNow-65Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+* {
+  font-family: "headingnow";
+  font-weight: 400;
+}
+
+
+
+#rndlg {
+  width: calc(130% / 3);
+}
+
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#status {
+  width: 500px;
+  margin-top: 80px;
+}
+
+#statustxt {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#logo {
+  width: 100%;
+  max-width: 650px;
+  margin-block: 30px;
+}
+
+.button,
+.btn {
+  text-align: center;
+  /* margin-top: 50px; */
+  margin-bottom: 40px;
+  font-weight: 500 !important;
+  font-size: 18px;
+}
+
+
+
+.bott p {
+  font-weight: 400;
+  font-size: 16px;
+  color: #5d5d5d;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.social img {
+  max-width: 60px;
+  margin-right: 7px;
+  margin-left: 7px;
+}
+
+.social-links img {
+  max-width: 40px;
+  margin-right: 7px;
+  margin-left: 7px;
+}
+
+
+.bar {
+  background-color: #265efc;
+  width: 100%;
+  height: 30px;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar p {
+  font-size: 12px;
+  color: #fff;
+  letter-spacing: 0.8px;
+  margin: 0px !important;
+}
+
+
+@media (max-width: 575px) {
+  .button,
+  .btn {
+    margin-bottom: 30px;
+  }
+
+  .bott p {
+    font-size: 14px;
+  }
+
+  .social img {
+    max-width: 45px;
+    margin-right: 7px;
+    margin-left: 7px;
+  }
+
+    .social-links img {
+    max-width: 40px;
+    margin-right: 7px;
+    margin-left: 7px;
+  }
+
+
+  #fankoo{
+  max-width: 64px;
+}
+
+  #main-sponsor {
+    max-width: 70px;
+    margin-bottom: -20px;
+  }
+
+  .bar p {
+    letter-spacing: 0px;
+  }
+  .steps {
+    margin-top: 40px;
+    gap: 1em;
+    margin-bottom: 28px;
+  }
+  #note {
+    font-size: 16px;
+  }
+
+  .bott {
+    /* margin-top: 100px; */
+  }
+
+  #please {
+    width: 320px;
+    font-size: 12px;
+  }
+
+  .ref {
+    margin-bottom: 0px;
+  }
+
+  #ill {
+    width: 335px;
+    margin-bottom: -30;
+  }
+
+  #logo {
+    width: 100%;
+    /* margin-bottom: -120px; */
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-left: 20px;
+  }
+
+  .form {
+    /* padding-top: 1.5rem !important; */
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  .form-label {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    margin-left: -10px !important;
+  }
+
+  .form-label-without {
+    margin-left: 0px !important;
+  }
+  .year {
+    width: 40%;
+    margin-left: 10px;
+    /* margin-bottom: 50px !important; */
+  }
+
+  .form-check {
+    margin-bottom: 15px;
+  }
+
+  .form-check-label {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .skill {
+    width: calc(100% / 2) !important;
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+  }
+
+  br {
+    display: block !important;
+  }
+
+  #rndlg {
+    width: calc(80% / 2);
+  }
+
+  #rndsm {
+    display: block !important;
+  }
+
+  #rate {
+    max-width: 100% !important;
+  }
+
+  .ref ul li a {
+    font-size: 13px;
+  }
+
+  #status {
+    width: 300px;
+    margin-top: 85px;
+  }
+
+  #statustxt {
+    margin-top: 61px;
+    font-size: 16px;
+  }
+
+  #btn {
+    margin-top: 30px;
+  }
+
+  ::placeholder {
+    font-size: 12px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+  /* background-image: url(../assets/bg.jpg); */
+  position: relative;
+  overflow-x: hidden;
+  background-color: #ffffff;
+}

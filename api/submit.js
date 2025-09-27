@@ -201,7 +201,7 @@ const successPage = `<!DOCTYPE html>
     <link rel="icon" href="https://apply.enactusmu.live/assets/favicon.ico" type="image/x-icon">
 <link href="https://apply.enactusmu.live/style/bootstrap.min.css" rel="stylesheet">
 <script src="https://apply.enactusmu.live/script/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://apply.enactusmu.live/style/style.css?v=2">
+<link rel="stylesheet" href="https://apply.enactusmu.live/style/success-style.css">
   </head>
   <body>
 
@@ -252,7 +252,7 @@ const failPage = `<!DOCTYPE html>
     <link rel="icon" href="https://apply.enactusmu.live/assets/favicon.ico" type="image/x-icon">
 <link href="https://apply.enactusmu.live/style/bootstrap.min.css" rel="stylesheet">
 <script src="https://apply.enactusmu.live/script/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://apply.enactusmu.live/style/style.css?v=2">
+<link rel="stylesheet" href="https://apply.enactusmu.live/style/success-style.css">
   </head>
   <body>
 
