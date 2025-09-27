@@ -215,7 +215,7 @@ const successPage = `<!DOCTYPE html>
                 <div class="button">
             <div class="bott">
                 <p>Follow Us</p>
-                <div class="social" id="contact">
+                <div class="social-links" id="contact">
                    <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://apply.enactusmu.live/assets/instagram.png" alt=""></a>
                    <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://apply.enactusmu.live/assets/facebook.png" alt=""></a>
                    <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://apply.enactusmu.live/assets/tiktok.png" alt=""></a>
@@ -265,7 +265,7 @@ const failPage = `<!DOCTYPE html>
         <div class="button">
             <div class="bott">
                 <p>Follow Us</p>
-                <div class="social" id="contact">
+                <div class="social-links" id="contact">
                    <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://apply.enactusmu.live/assets/instagram.png" alt=""></a>
                    <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://apply.enactusmu.live/assets/facebook.png" alt=""></a>
                    <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://apply.enactusmu.live/assets/tiktok.png" alt=""></a>
@@ -278,7 +278,7 @@ const failPage = `<!DOCTYPE html>
         <p>© 2026 Enactus Mansoura University</p>
       </div>
     </div>
-    
+
     <script>
   setTimeout(() => {
     window.location.href = "https://enactusmu.live/";

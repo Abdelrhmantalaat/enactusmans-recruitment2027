@@ -264,6 +264,12 @@ button {
   margin-bottom: 15px;
 }
 
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
 .social img {
   max-width: 60px;
   margin-right: 7px;
