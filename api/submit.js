@@ -231,6 +231,11 @@ const successPage = `<!DOCTYPE html>
         </div>
     </div>
 
+<script>
+  setTimeout(() => {
+    window.location.href = "https://enactusmu.live/";
+  }, 4000); // 4000ms = 4 seconds
+</script>
 
     
   </body>
@@ -274,5 +279,10 @@ const failPage = `<!DOCTYPE html>
       </div>
     </div>
     
+    <script>
+  setTimeout(() => {
+    window.location.href = "https://enactusmu.live/";
+  }, 4000); // 4000ms = 4 seconds
+</script>
   </body>
 </html>`;
