@@ -18,38 +18,20 @@ module.exports = async (req, res) => {
       const {
         name,
         email,
-        date,
         phone,
-        residency,
-        instagram,
-        school,
+        age,
+        city,
         university,
         faculty,
-        radio,
-        other_option_response,
         whatknow,
-        howknow,
         interest,
-        volunteer,
-        strength,
-        leader,
-        leadershipRole,
-        leaderBalance,
-        available,
-        responsibilities,
-        rateurself,
-        skillslearn,
-        newskills,
-        researchskills,
-        taskexample,
-        onlineresources,
-        priorities,
-        project,
-        engaging,
+        hoursPerWeek,
+        skillsRating,
+        strengthWeakness,
+        stress,
+        teamwork,
         criticism,
-        excited,
-        ask,
-        other_field_response,
+        ask
       } = parsedBody;
 
       // Handle the checkboxes 'fields[]'
@@ -57,101 +39,30 @@ module.exports = async (req, res) => {
 
       const dateParts = date.split("-");
 
-      // Add checkboxes values
-      const values = [
-        "Graphic Design",
-        "Web development",
-        "Presentation",
-        "Sessions Trainer",
-        "Marketing",
-        "Photography",
-        "Fundraising",
-        "Research and development",
-        "Field work",
-        "__other_option__",
-      ];
-
-      // Ensure fields is an array and iterate over it
-      let checkboxData = "";
-
-      if (Array.isArray(fields)) {
-        fields.forEach((chkval) => {
-          if (chkval === values[0]) {
-            checkboxData += "Graphic Design, ";
-          }
-          if (chkval === values[1]) {
-            checkboxData += "Web Development, ";
-          }
-          if (chkval === values[2]) {
-            checkboxData += "Presentation, ";
-          }
-          if (chkval === values[3]) {
-            checkboxData += "Sessions Trainer, ";
-          }
-          if (chkval === values[4]) {
-            checkboxData += "Marketing, ";
-          }
-          if (chkval === values[5]) {
-            checkboxData += "Photography, ";
-          }
-          if (chkval === values[6]) {
-            checkboxData += "Fundraising, ";
-          }
-          if (chkval === values[7]) {
-            checkboxData += "Research and Development, ";
-          }
-          if (chkval === values[8]) {
-            checkboxData += "Field Work, ";
-          }
-        });
-        checkboxData = checkboxData.replace(/, $/, "");
-        checkboxData = checkboxData.replace(/['"]/g, "");
-      }
       // Create the data payload
       let postData = querystring.stringify({
-        "entry.226913857": name,
-        "entry.2081579804": email,
-        "entry.237350523_year": dateParts[0],
-        "entry.237350523_month": dateParts[1],
-        "entry.237350523_day": dateParts[2],
-        "entry.1085630826": phone,
-        "entry.1353136778": residency,
-        "entry.416320931": instagram,
-        "entry.1207179881": school,
-        "entry.2254370": university,
-        "entry.1877000918": faculty,
-        "entry.186073311": radio,
-        "entry.186073311.other_option_response": other_option_response,
-        "entry.323024726": whatknow,
-        "entry.61761973": howknow,
-        "entry.1535046649": interest,
-        "entry.1503551755": volunteer,
-        "entry.1509395968": strength,
-        "entry.359773790": leader,
-        "entry.739317209": leadershipRole,
-        "entry.1150687452": leaderBalance,
-        "entry.1319878197": available,
-        "entry.1994962965": responsibilities,
-        "entry.1261486210": rateurself,
-        "entry.1866108043": skillslearn,
-        "entry.1050127696": newskills,
-        "entry.1672324758": researchskills,
-        "entry.226143631": taskexample,
-        "entry.581162371": onlineresources,
-        "entry.1724899656": priorities,
-        "entry.309251967": project,
-        "entry.571747934": engaging,
-        "entry.34927441": criticism,
-        "entry.1139972872": excited,
-        "entry.1380734089": ask,
-        "entry.1658984132": checkboxData,
-        "entry.577264316": other_field_response,
+        "entry.612144490": name,
+        "entry.1061558525": email,
+        "entry.1298403558": phone,
+        "entry.1641660849": age,
+        "entry.1216978654": city,
+        "entry.789953409": university,
+        "entry.1724244797": faculty,
+        "entry.389414694": whatknow,
+        "entry.1071652212": interest,
+        "entry.273776112": hoursPerWeek,
+        "entry.1351148600": skillsRating,
+        "entry.1194376714": strengthWeakness,
+        "entry.260286189": stress,
+        "entry.1870358936": teamwork,
+        "entry.465791700": criticism,
+        "entry.533677153": ask
       });
 
       // Set up the POST request options
       const options = {
         hostname: "docs.google.com",
-        path: "/forms/d/e/1FAIpQLSfLVqhDO0IHMojP_GVFda7Nd74u-Dvmex32FPq0OffpnIlQnw/formResponse",
+        path: "/forms/d/e/1FAIpQLSdxr4M3PL1ZmsGA41AOxrCZ8dPU61wT3RRyx-N-DP7LZwwM-g/formResponse",
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
