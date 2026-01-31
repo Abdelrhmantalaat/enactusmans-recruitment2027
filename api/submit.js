@@ -34,10 +34,7 @@ module.exports = async (req, res) => {
         ask
       } = parsedBody;
 
-      // Handle the checkboxes 'fields[]'
-      const fields = parsedBody["fields[]"] || []; // If no fields are selected, it will be undefined
 
-      const dateParts = date.split("-");
 
       // Create the data payload
       let postData = querystring.stringify({
