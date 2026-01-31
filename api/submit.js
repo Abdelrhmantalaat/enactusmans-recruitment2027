@@ -104,12 +104,12 @@ const successPage = `<!DOCTYPE html>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Success! - Enactus Mansoura University</title>
-    <link rel="shortcut icon" href="https://apply.enactusmu.live/assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://apply.enactusmu.live/assets/favicon.ico" type="image/x-icon">
-<link href="https://apply.enactusmu.live/style/bootstrap.min.css" rel="stylesheet">
-<script src="https://apply.enactusmu.live/script/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://apply.enactusmu.live/style/success-style.css">
+    <title>Success! - Milestone 2026 Application Forms</title>
+    <link rel="shortcut icon" href="https://milestone.enactusmu.live/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://milestone.enactusmu.live/assets/favicon.ico" type="image/x-icon">
+<link href="https://milestone.enactusmu.live/style/bootstrap.min.css" rel="stylesheet">
+<script src="https://milestone.enactusmu.live/script/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://milestone.enactusmu.live/style/success-style.css">
   </head>
   <body>
 
@@ -117,16 +117,16 @@ const successPage = `<!DOCTYPE html>
     <div class="heading" style=" min-height: 100vh;">
       
 
-        <img id="status" src="https://apply.enactusmu.live/assets/success.svg" alt="">
-        <p id="statustxt">Thank you for your interest in joining us!</p>
+        <img id="status" src="https://milestone.enactusmu.live/assets/success.svg" alt="">
+        <p id="statustxt">Thank you for your interest in joining Milestone!</p>
 
                 <div class="button">
             <div class="bott">
                 <p>Follow Us</p>
                 <div class="social-links" id="contact">
-                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://apply.enactusmu.live/assets/instagram.png" alt=""></a>
-                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://apply.enactusmu.live/assets/facebook.png" alt=""></a>
-                   <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://apply.enactusmu.live/assets/tiktok.png" alt=""></a>
+                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://milestone.enactusmu.live/assets/instagram.png" alt=""></a>
+                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://milestone.enactusmu.live/assets/facebook.png" alt=""></a>
+                   <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://milestone.enactusmu.live/assets/tiktok.png" alt=""></a>
 
                 </div>
             </div>
@@ -156,11 +156,11 @@ const failPage = `<!DOCTYPE html>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Failure! - Enactus Mansoura University</title>
-    <link rel="shortcut icon" href="https://apply.enactusmu.live/assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://apply.enactusmu.live/assets/favicon.ico" type="image/x-icon">
-<link href="https://apply.enactusmu.live/style/bootstrap.min.css" rel="stylesheet">
-<script src="https://apply.enactusmu.live/script/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://apply.enactusmu.live/style/success-style.css">
+    <link rel="shortcut icon" href="https://milestone.enactusmu.live/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://milestone.enactusmu.live/assets/favicon.ico" type="image/x-icon">
+<link href="https://milestone.enactusmu.live/style/bootstrap.min.css" rel="stylesheet">
+<script src="https://milestone.enactusmu.live/script/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://milestone.enactusmu.live/style/success-style.css">
   </head>
   <body>
 
@@ -168,15 +168,15 @@ const failPage = `<!DOCTYPE html>
     <div class="heading" style=" min-height: 100vh;">
       
 
-        <img id="status" src="https://apply.enactusmu.live/assets/failure.svg" alt="">
+        <img id="status" src="https://milestone.enactusmu.live/assets/failure.svg" alt="">
         <p id="statustxt">Please try again</p>
         <div class="button">
             <div class="bott">
                 <p>Follow Us</p>
                 <div class="social-links" id="contact">
-                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://apply.enactusmu.live/assets/instagram.png" alt=""></a>
-                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://apply.enactusmu.live/assets/facebook.png" alt=""></a>
-                   <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://apply.enactusmu.live/assets/tiktok.png" alt=""></a>
+                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://milestone.enactusmu.live/assets/instagram.png" alt=""></a>
+                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://milestone.enactusmu.live/assets/facebook.png" alt=""></a>
+                   <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://milestone.enactusmu.live/assets/tiktok.png" alt=""></a>
 
                 </div>
             </div>
