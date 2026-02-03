@@ -115,7 +115,7 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  background-color: #3572fc;
+  background-color: #000000;
 }
 
 #status {
@@ -143,7 +143,7 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 
 #note {
   font-weight: 400;
-  color: #265efc;
+  color: #000000;
   font-size: 20px;
 }
 
@@ -229,7 +229,7 @@ input[type="radio"]:active {
 
 button {
   width: 150px;
-  background-color: #e6d303 !important;
+  background-color: #6b4bff !important;
   color: white !important;
 }
 
@@ -302,12 +302,12 @@ button {
 }
 
 .steps-phase-active .steps-phase-num {
-  color: #265efc;
+  color: #6b4bff;
   background-color: #d4dfff;
 }
 
 .steps-phase-active .steps-phase-title {
-  color: #265efc;
+  color: #6b4bff;
 }
 
 .steps-phase-num {
@@ -332,7 +332,7 @@ button {
 }
 
 .bar {
-  background-color: #265efc;
+  background-color: #6b4bff;
   width: 100%;
   height: 30px;
   bottom: 0px;
@@ -499,6 +499,12 @@ button {
 
 .hidden {
   display: none;
+}
+
+.bott,
+.social,
+.social-links {
+  background-color: #ffffff !important;
 }
 
 body {

@@ -73,7 +73,7 @@
 .bott p {
   font-weight: 400;
   font-size: 16px;
-  color: #5d5d5d;
+  color: #ffffff;
 }
 
 .social {
@@ -104,7 +104,7 @@
 
 
 .bar {
-  background-color: #265efc;
+  background-color: #6b4bff;
   width: 100%;
   height: 30px;
   bottom: 0px;
@@ -167,6 +167,7 @@
 
   .bott {
     /* margin-top: 100px; */
+
   }
 
   #please {
@@ -275,6 +276,10 @@
 
 .hidden {
   display: none;
+}
+.bott,
+footer {
+  background-color: #ffffff !important;
 }
 
 body {
