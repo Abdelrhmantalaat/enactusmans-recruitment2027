@@ -2,73 +2,355 @@ const https = require("https");
 const querystring = require("querystring");
 
 module.exports = async (req, res) => {
-  if (req.method === "POST") {
-    let body = "";
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method Not Allowed" });
+  }
 
-    // Collect incoming data
-    req.on("data", (chunk) => {
-      body += chunk.toString(); // Convert the Buffer to a string
+  let body = "";
+
+  req.on("data", (chunk) => {
+    body += chunk.toString();
+  });
+
+  req.on("end", () => {
+    const parsedBody = querystring.parse(body);
+
+    // =========================
+    // Get data from website
+    // =========================
+
+    const {
+      name,
+      email,
+      phone,
+      residency,
+      birthDate,
+      highSchool,
+      university,
+      faculty,
+      tutorialYear,
+      tutorialYearOther,
+      instagram,
+      whatKnow,
+      howKnow,
+      difference,
+      interest,
+      volunteerWork,
+      strengthWeakness,
+      teamPreference,
+      leadershipRole,
+      availability,
+      workLifeBalance,
+      responsibilities,
+      fields,
+      otherField,
+      fieldRating,
+      whatAdd,
+      learning,
+      reliableSource,
+      fieldVsOnline,
+      researchExample,
+      sponsorChoice,
+      innovativeSolution,
+      knownOrNewField,
+      teamBehavior,
+      independentOrTeam,
+      criticism,
+      ask
+    } = parsedBody;
+
+    // =========================
+    // Google Forms data
+    // =========================
+
+    const googleFormData = [];
+
+    // Name
+    googleFormData.push([
+      "entry.1884265043",
+      name || ""
+    ]);
+
+    // Mail
+    googleFormData.push([
+      "entry.893066703",
+      email || ""
+    ]);
+
+    // Phone Number
+    googleFormData.push([
+      "entry.762664935",
+      phone || ""
+    ]);
+
+    // Residency
+    googleFormData.push([
+      "entry.777963996",
+      residency || ""
+    ]);
+
+    // Birth Date
+    googleFormData.push([
+      "entry.16062350",
+      birthDate || ""
+    ]);
+
+    // High School
+    googleFormData.push([
+      "entry.525139968",
+      highSchool || ""
+    ]);
+
+    // University
+    googleFormData.push([
+      "entry.1951007764",
+      university || ""
+    ]);
+
+    // Faculty
+    googleFormData.push([
+      "entry.943573766",
+      faculty || ""
+    ]);
+
+    // Tutorial Year
+    if (tutorialYear === "__other_option__") {
+      googleFormData.push([
+        "entry.914168470",
+        "__other_option__"
+      ]);
+
+      googleFormData.push([
+        "entry.914168470.other_option_response",
+        tutorialYearOther || ""
+      ]);
+    } else {
+      googleFormData.push([
+        "entry.914168470",
+        tutorialYear || ""
+      ]);
+    }
+
+    // Instagram
+    googleFormData.push([
+      "entry.1224563023",
+      instagram || ""
+    ]);
+
+    // What do you know about Enactus?
+    googleFormData.push([
+      "entry.1964115254",
+      whatKnow || ""
+    ]);
+
+    // How do you know about it?
+    googleFormData.push([
+      "entry.211995956",
+      howKnow || ""
+    ]);
+
+    // What makes Enactus Mansoura different?
+    googleFormData.push([
+      "entry.1600134367",
+      difference || ""
+    ]);
+
+    // Why are you interested?
+    googleFormData.push([
+      "entry.212046804",
+      interest || ""
+    ]);
+
+    // Previous volunteer work
+    googleFormData.push([
+      "entry.1208719334",
+      volunteerWork || ""
+    ]);
+
+    // Strengths and weaknesses
+    googleFormData.push([
+      "entry.212781714",
+      strengthWeakness || ""
+    ]);
+
+    // Team member or leader
+    googleFormData.push([
+      "entry.1706350781",
+      teamPreference || ""
+    ]);
+
+    // When do you step into leadership?
+    googleFormData.push([
+      "entry.513669972",
+      leadershipRole || ""
+    ]);
+
+    // Current availability
+    googleFormData.push([
+      "entry.1033504492",
+      availability || ""
+    ]);
+
+    // Work-life balance
+    googleFormData.push([
+      "entry.1556742120",
+      workLifeBalance || ""
+    ]);
+
+    // Current responsibilities
+    googleFormData.push([
+      "entry.1711800281",
+      responsibilities || ""
+    ]);
+
+    // =========================
+    // Fields
+    // =========================
+
+    let selectedFields = fields || [];
+
+    if (!Array.isArray(selectedFields)) {
+      selectedFields = [selectedFields];
+    }
+
+    selectedFields.forEach((field) => {
+      if (field && field !== "__other_option__") {
+        googleFormData.push([
+          "entry.1842565250",
+          field
+        ]);
+      }
     });
 
-    // Process the complete body once it's fully received
-    req.on("end", () => {
-      // Parse the form data (urlencoded)
-      const parsedBody = querystring.parse(body);
+    // Other field
+    if (selectedFields.includes("__other_option__")) {
+      googleFormData.push([
+        "entry.1842565250",
+        "__other_option__"
+      ]);
 
-      const {
-        name,
-        email,
-        phone,
-        age,
-        city,
-        university,
-        faculty,
-        whatknow,
-        interest,
-        hoursPerWeek,
-        skillsRating,
-        strengthWeakness,
-        stress,
-        teamwork,
-        criticism,
-        ask
-      } = parsedBody;
+      googleFormData.push([
+        "entry.1842565250.other_option_response",
+        otherField || ""
+      ]);
+    }
 
+    // Rate yourself / examples
+    googleFormData.push([
+      "entry.1891756682",
+      fieldRating || ""
+    ]);
 
+    // What will you add?
+    googleFormData.push([
+      "entry.65505240",
+      whatAdd || ""
+    ]);
 
-      // Create the data payload
-      let postData = querystring.stringify({
-        "entry.612144490": name,
-        "entry.1061558525": email,
-        "entry.1298403558": phone,
-        "entry.1641660849": age,
-        "entry.1216978654": city,
-        "entry.789953409": university,
-        "entry.1724244797": faculty,
-        "entry.389414694": whatknow,
-        "entry.1071652212": interest,
-        "entry.273776112": hoursPerWeek,
-        "entry.1351148600": skillsRating,
-        "entry.1194376714": strengthWeakness,
-        "entry.260286189": stress,
-        "entry.1870358936": teamwork,
-        "entry.465791700": criticism,
-        "entry.533677153": ask
-      });
+    // Learning new skills
+    googleFormData.push([
+      "entry.2032761895",
+      learning || ""
+    ]);
 
-      // Set up the POST request options
-      const options = {
-        hostname: "docs.google.com",
-        path: "/forms/d/e/1FAIpQLSdxr4M3PL1ZmsGA41AOxrCZ8dPU61wT3RRyx-N-DP7LZwwM-g/formResponse",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-          "Content-Length": Buffer.byteLength(postData),
-        },
-      };
+    // Reliable source
+    googleFormData.push([
+      "entry.14291829",
+      reliableSource || ""
+    ]);
 
-      // Make the POST request to Google Forms
-      const request = https.request(options, (response) => {
+    // Field vs online information
+    googleFormData.push([
+      "entry.1862403506",
+      fieldVsOnline || ""
+    ]);
+
+    // Research / resourcefulness example
+    googleFormData.push([
+      "entry.1531088855",
+      researchExample || ""
+    ]);
+
+    // Sponsor choice
+    googleFormData.push([
+      "entry.1093445631",
+      sponsorChoice || ""
+    ]);
+
+    // Innovative solution
+    googleFormData.push([
+      "entry.517038073",
+      innovativeSolution || ""
+    ]);
+
+    // Known field or new field
+    googleFormData.push([
+      "entry.139029733",
+      knownOrNewField || ""
+    ]);
+
+    // Team behavior
+    googleFormData.push([
+      "entry.1710103116",
+      teamBehavior || ""
+    ]);
+
+    // Independent or team
+    googleFormData.push([
+      "entry.1037119084",
+      independentOrTeam || ""
+    ]);
+
+    // Criticism / feedback
+    googleFormData.push([
+      "entry.1782600271",
+      criticism || ""
+    ]);
+
+    // Final question
+    googleFormData.push([
+      "entry.1261012492",
+      ask || ""
+    ]);
+
+    // =========================
+    // Convert data to URL encoded
+    // =========================
+
+    const postData = googleFormData
+      .map(([key, value]) => {
+        return (
+          encodeURIComponent(key) +
+          "=" +
+          encodeURIComponent(value)
+        );
+      })
+      .join("&");
+
+    // =========================
+    // Google Forms request
+    // =========================
+
+    const options = {
+      hostname: "docs.google.com",
+
+      path:
+        "/forms/d/e/1FAIpQLSexkC04-UsvsQ18TmOOj4DVVaLPF7ulavqJBETLnmyMtSPTlA/formResponse",
+
+      method: "POST",
+
+      headers: {
+        "Content-Type":
+          "application/x-www-form-urlencoded",
+
+        "Content-Length":
+          Buffer.byteLength(postData),
+      },
+    };
+
+    const request = https.request(
+      options,
+      (response) => {
         let data = "";
 
         response.on("data", (chunk) => {
@@ -76,121 +358,184 @@ module.exports = async (req, res) => {
         });
 
         response.on("end", () => {
-          // Send success response to client
-          res.setHeader("Content-Type", "text/html"); // Set content type to HTML
+          console.log(
+            "Google Forms response:",
+            response.statusCode
+          );
+
+          res.setHeader(
+            "Content-Type",
+            "text/html"
+          );
+
           res.status(200).send(successPage);
         });
-      });
+      }
+    );
 
-      request.on("error", (error) => {
-        // Handle any errors
-        res.setHeader("Content-Type", "text/html"); // Set content type to HTML
-        res.status(500).send(failPage);
-      });
+    request.on("error", (error) => {
+      console.error(
+        "Google Forms error:",
+        error
+      );
 
-      // Write the data and end the request
-      request.write(postData);
-      request.end();
+      res.setHeader(
+        "Content-Type",
+        "text/html"
+      );
+
+      res.status(500).send(failPage);
     });
-  } else {
-    // Return 405 if not POST method
-    res.status(405).json({ message: "Method Not Allowed" });
-  }
+
+    request.write(postData);
+    request.end();
+  });
 };
 
-const successPage = `<!DOCTYPE html>
+
+// =========================
+// Success Page
+// =========================
+
+const successPage = `
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Success! - Milestone 2026 Application Forms</title>
-    <link rel="shortcut icon" href="https://milestone.enactusmu.live/assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://milestone.enactusmu.live/assets/favicon.ico" type="image/x-icon">
-<link href="https://milestone.enactusmu.live/style/bootstrap.min.css" rel="stylesheet">
-<script src="https://milestone.enactusmu.live/script/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://milestone.enactusmu.live/style/success-style.css">
-  </head>
-  <body>
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    Thank You - Enactus Mansoura Recruitment 2027
+  </title>
+
+  <style>
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-family: Arial, sans-serif;
+
+      background: #ffffff;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>
+      Thank you for your interest in joining Enactus Mansoura!
+    </h1>
+
+    <p>
+      Your application has been submitted successfully.
+    </p>
+
+  </div>
+
+</body>
+
+</html>
+`;
 
 
-    <div class="heading" style=" min-height: 100vh;">
-      
+// =========================
+// Failure Page
+// =========================
 
-        <img id="status" src="https://milestone.enactusmu.live/assets/success.svg" alt="">
-        <p id="statustxt">Thank you for your interest in joining Milestone!</p>
-
-                <div class="button">
-            <div class="bott">
-                <p>Follow Us</p>
-                <div class="social-links" id="contact">
-                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://milestone.enactusmu.live/assets/instagram.png" alt=""></a>
-                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://milestone.enactusmu.live/assets/facebook.png" alt=""></a>
-                   <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://milestone.enactusmu.live/assets/tiktok.png" alt=""></a>
-
-                </div>
-            </div>
-        </div>
-
-
-        <div class="bar" style="position: absolute; bottom: 0;">
-            <p>© 2026 Enactus Mansoura University</p>
-          </div>
-        </div>
-    </div>
-
-<script>
-  setTimeout(() => {
-    window.location.href = "https://enactusmu.live/";
-  }, 4000); // 4000ms = 4 seconds
-</script>
-
-    
-  </body>
-</html>`;
-
-const failPage = `<!DOCTYPE html>
+const failPage = `
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Failure! - Enactus Mansoura University</title>
-    <link rel="shortcut icon" href="https://milestone.enactusmu.live/assets/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="https://milestone.enactusmu.live/assets/favicon.ico" type="image/x-icon">
-<link href="https://milestone.enactusmu.live/style/bootstrap.min.css" rel="stylesheet">
-<script src="https://milestone.enactusmu.live/script/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://milestone.enactusmu.live/style/success-style.css">
-  </head>
-  <body>
 
+<head>
 
-    <div class="heading" style=" min-height: 100vh;">
-      
+  <meta charset="UTF-8" />
 
-        <img id="status" src="https://milestone.enactusmu.live/assets/failure.svg" alt="">
-        <p id="statustxt">Please try again</p>
-        <div class="button">
-            <div class="bott">
-                <p>Follow Us</p>
-                <div class="social-links" id="contact">
-                   <a href="https://instagram.com/enactusmans/" target="_blank"><img src="https://milestone.enactusmu.live/assets/instagram.png" alt=""></a>
-                   <a href="https://facebook.com/EnactusMansouraUniversity/" target="_blank"><img src="https://milestone.enactusmu.live/assets/facebook.png" alt=""></a>
-                   <a href="https://www.tiktok.com/@enactusmans" target="_blank"><img src="https://milestone.enactusmu.live/assets/tiktok.png" alt=""></a>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="bar" style="position: absolute; bottom: 0;">
-        <p>© 2026 Enactus Mansoura University</p>
-      </div>
-    </div>
+  <title>
+    Submission Failed - Enactus Mansoura
+  </title>
 
-    <script>
-  setTimeout(() => {
-    window.location.href = "https://enactusmu.live/";
-  }, 4000); // 4000ms = 4 seconds
-</script>
-  </body>
-</html>`;
+  <style>
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-family: Arial, sans-serif;
+
+      background: #ffffff;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>
+      Something went wrong.
+    </h1>
+
+    <p>
+      Please try again.
+    </p>
+
+  </div>
+
+</body>
+
+</html>
+`;

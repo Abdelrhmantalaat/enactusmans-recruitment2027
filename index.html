@@ -1,317 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Application Form - Milestone 2026</title>
+  <title>Application Form - Enactus Mansoura Recruitment 2027</title>
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link href="style/bootstrap.min.css" rel="stylesheet">
   <script src="script/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="style/style.css?v=2">
+  <link rel="stylesheet" href="style/style.css?v=3">
 </head>
-
 <body>
   <div class="heading">
-    <div>
-      <img id="logo" src="assets/MS8.svg" alt="">
-    </div>
+    <div><img id="logo" src="assets/MS8.svg" alt="Enactus Mansoura"></div>
     <p id="note">NOTE!</p>
-    <p id="please">Please answer all the questions in appropriate english without using any franco-arabic, emojis or
-      symbols. We wish you all the best of luck!</p>
+    <p id="please">Please answer all the questions in appropriate English without using any Franco-Arabic, emojis or symbols. We wish you all the best of luck!</p>
   </div>
 
   <div class="main">
     <div class="all">
-      <div>
-        <form id="form" action="/api/submit" method="post">
-          <!-- Personal Questions Section -->
-          <div class="steps">
-            <div class="steps-phase steps-phase-active">
-              <div class="steps-phase-num">1</div>
-              <div class="steps-phase-title">Personal Questions</div>
-            </div>
-            <div class="steps-phase">
-              <div class="steps-phase-num">2</div>
-              <div class="steps-phase-title">Academic Questions</div>
-            </div>
-            <div class="steps-phase">
-              <div class="steps-phase-num">3</div>
-              <div class="steps-phase-title">Open Questions</div>
-            </div>
-          </div>
+      <form id="form" action="/api/submit" method="post">
 
-          <div class="mb-2">
-            <label for="name" class="form-label form-label-without">Name<span>*</span></label>
-            <input type="text" class="form-control rounded-3" id="name" name="name" placeholder="Enter your name"
-              required />
-          </div>
-          <div class="mb-2">
-            <label for="email" class="form-label form-label-without">Email<span>*</span></label>
-            <input type="email" class="form-control rounded-3" id="email" name="email" placeholder="Enter your email"
-              required />
-          </div>
-          <div class="mb-2">
-            <label for="phone" class="form-label form-label-without">Phone Number<span>*</span></label>
-            <input type="tel" class="form-control rounded-3" id="phone" name="phone"
-              placeholder="Enter your phone number" required />
-          </div>
-
-          <div class="mb-2">
-            <label for="age" class="form-label form-label-without">Age<span>*</span></label>
-            <input type="number" class="form-control rounded-3" id="age" name="age" placeholder="Enter your age"
-              required />
-          </div>
-
-          <div class="mb-2">
-            <label for="city" class="form-label form-label-without">City<span>*</span></label>
-            <input type="text" class="form-control rounded-3" id="city" name="city" placeholder="Enter your city"
-              required />
-          </div>
-
-          <!-- Academic Questions Section -->
-          <div class="steps">
-            <div class="steps-phase">
-              <div class="steps-phase-num">1</div>
-              <div class="steps-phase-title">Personal Questions</div>
-            </div>
-            <div class="steps-phase steps-phase-active">
-              <div class="steps-phase-num">2</div>
-              <div class="steps-phase-title">Academic Questions</div>
-            </div>
-            <div class="steps-phase">
-              <div class="steps-phase-num">3</div>
-              <div class="steps-phase-title">Open Questions</div>
-            </div>
-          </div>
-
-          <div class="mb-2">
-            <label for="university" class="form-label form-label-without">University<span>*</span></label>
-            <input type="text" class="form-control rounded-3" id="university" name="university"
-              placeholder="Enter your university" required />
-          </div>
-
-          <div class="mb-2">
-            <label for="faculty" class="form-label form-label-without">Faculty<span>*</span></label>
-            <input type="text" class="form-control rounded-3" id="faculty" name="faculty"
-              placeholder="Enter your faculty" required />
-          </div>
-      </div>
-
-      <!-- Open Questions Section -->
-      <div>
         <div class="steps">
-          <div class="steps-phase">
-            <div class="steps-phase-num">1</div>
-            <div class="steps-phase-title">Personal Questions</div>
+          <div class="steps-phase steps-phase-active"><div class="steps-phase-num">1</div><div class="steps-phase-title">Personal Questions</div></div>
+          <div class="steps-phase"><div class="steps-phase-num">2</div><div class="steps-phase-title">Academic Questions</div></div>
+          <div class="steps-phase"><div class="steps-phase-num">3</div><div class="steps-phase-title">Open Questions</div></div>
+        </div>
+
+        <div class="mb-2"><label for="name" class="form-label form-label-without">Name<span>*</span></label><input type="text" class="form-control rounded-3" id="name" name="name" placeholder="Enter your name" required></div>
+        <div class="mb-2"><label for="email" class="form-label form-label-without">Mail<span>*</span></label><input type="email" class="form-control rounded-3" id="email" name="email" placeholder="Enter your email" required></div>
+        <div class="mb-2"><label for="phone" class="form-label form-label-without">Phone Number<span>*</span></label><input type="text"
+  name="phone"
+  id="phone"
+  class="form-control"
+  placeholder="Phone Number*"
+  inputmode="numeric"
+  maxlength="11"
+  required
+  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+></div>
+        <div class="mb-2"><label for="residency" class="form-label form-label-without">Residency<span>*</span></label><input type="text" class="form-control rounded-3" id="residency" name="residency" placeholder="Enter your residency" required></div>
+        <div class="mb-2"><label for="birthDate" class="form-label form-label-without">Birth Date<span>*</span></label><input type="date" class="form-control rounded-3" id="birthDate" name="birthDate" required></div>
+        <div class="mb-2"><label for="highSchool" class="form-label form-label-without">High School<span>*</span></label><input type="text" class="form-control rounded-3" id="highSchool" name="highSchool" placeholder="Enter your high school" required></div>
+        <div class="mb-2"><label for="instagram" class="form-label form-label-without">Instagram URL<span>*</span></label><input type="url" class="form-control rounded-3" id="instagram" name="instagram" placeholder="https://instagram.com/username" required></div>
+
+        <div class="steps">
+          <div class="steps-phase"><div class="steps-phase-num">1</div><div class="steps-phase-title">Personal Questions</div></div>
+          <div class="steps-phase steps-phase-active"><div class="steps-phase-num">2</div><div class="steps-phase-title">Academic Questions</div></div>
+          <div class="steps-phase"><div class="steps-phase-num">3</div><div class="steps-phase-title">Open Questions</div></div>
+        </div>
+
+        <div class="mb-2"><label for="university" class="form-label form-label-without">University<span>*</span></label><input type="text" class="form-control rounded-3" id="university" name="university" placeholder="Enter your university" required></div>
+        <div class="mb-2"><label for="faculty" class="form-label form-label-without">Faculty<span>*</span></label><input type="text" class="form-control rounded-3" id="faculty" name="faculty" placeholder="Enter your faculty" required></div>
+
+        <div class="mb-4">
+          <label class="form-label">Tutorial year<span>*</span></label>
+          <div class="form-check"><input class="form-check-input" type="radio" name="tutorialYear" value="1st" id="year1" required><label class="form-check-label" for="year1">1st</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="tutorialYear" value="2nd" id="year2"><label class="form-check-label" for="year2">2nd</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="tutorialYear" value="3rd" id="year3"><label class="form-check-label" for="year3">3rd</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="tutorialYear" value="4th" id="year4"><label class="form-check-label" for="year4">4th</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="tutorialYear" value="5th" id="year5"><label class="form-check-label" for="year5">5th</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="tutorialYear" value="__other_option__" id="yearOther"><label class="form-check-label" for="yearOther">Other</label></div>
+          <div id="tutorialYearOtherContainer" class="mt-2" style="display:none"><input type="text" class="form-control rounded-3" id="tutorialYearOther" name="tutorialYearOther" placeholder="Please specify"></div>
+        </div>
+
+        <div class="steps">
+          <div class="steps-phase"><div class="steps-phase-num">1</div><div class="steps-phase-title">Personal Questions</div></div>
+          <div class="steps-phase"><div class="steps-phase-num">2</div><div class="steps-phase-title">Academic Questions</div></div>
+          <div class="steps-phase steps-phase-active"><div class="steps-phase-num">3</div><div class="steps-phase-title">Open Questions</div></div>
+        </div>
+
+        <div class="mb-2"><label for="whatKnow" class="form-label mt-3">What do you know about Enactus?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="whatKnow" name="whatKnow" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="howKnow" class="form-label mt-3">How do you know about it?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="howKnow" name="howKnow" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="difference" class="form-label mt-3">What do you think makes an Enactus Mansoura different from a normal volunteering activity?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="difference" name="difference" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="interest" class="form-label mt-3">Why are you interested in joining Enactus Mansoura and what do expect from it?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="interest" name="interest" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="volunteerWork" class="form-label mt-3">Have you done any other volunteer work? (Yes or No) If yes what was your role and how did you contribute to the team’s success?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="volunteerWork" name="volunteerWork" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="strengthWeakness" class="form-label mt-3">Shortly talk about your strengths and weaknesses!<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="strengthWeakness" name="strengthWeakness" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="teamPreference" class="form-label mt-3">Do you prefer to be a team member or leader and why?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="teamPreference" name="teamPreference" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="leadershipRole" class="form-label mt-3">If you are working in a team, how do you decide when to step into a leadership role?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="leadershipRole" name="leadershipRole" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="availability" class="form-label mt-3">What is your current availability in terms of hours per week or days, and how flexible are you with your schedule?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="availability" name="availability" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="workLifeBalance" class="form-label mt-3">How do you maintain a work-life balance, and what do you do to prevent burnout?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="workLifeBalance" name="workLifeBalance" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="responsibilities" class="form-label mt-3">Do you have any current Responsibilities (work, other activities)?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="responsibilities" name="responsibilities" rows="4" placeholder="Please answer the question" required></textarea></div>
+
+        <div class="mb-2">
+          <label class="form-label mt-3">Are you interested in any of the following fields? “You can choose more than one”<span>*</span></label>
+          <p class="mb-3">Select the fields you are interested in:</p>
+
+          <div id="fieldsContainer">
+            <div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="Graphic designing" id="fieldGraphic">
+  <label class="form-check-label" for="fieldGraphic">Graphic designing</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="web developing" id="fieldWeb">
+  <label class="form-check-label" for="fieldWeb">Web developing</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="Presentation" id="fieldPresentation">
+  <label class="form-check-label" for="fieldPresentation">Presentation</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="Marketing" id="fieldMarketing">
+  <label class="form-check-label" for="fieldMarketing">Marketing</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="PhotoGraghy" id="fieldPhotography">
+  <label class="form-check-label" for="fieldPhotography">PhotoGraghy</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="Fundraising" id="fieldFundraising">
+  <label class="form-check-label" for="fieldFundraising">Fundraising</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="Session Trainer" id="fieldSessionTrainer">
+  <label class="form-check-label" for="fieldSessionTrainer">Session Trainer</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="Research and Development" id="fieldResearch">
+  <label class="form-check-label" for="fieldResearch">Research and Development</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="Field Work" id="fieldWork">
+  <label class="form-check-label" for="fieldWork">Field Work</label>
+</div>
+
+<div class="form-check">
+  <input class="form-check-input field-checkbox" type="checkbox" name="fields[]" value="__other_option__" id="otherField">
+  <label class="form-check-label" for="otherField">Other</label>
+</div>
+
+          <div id="otherFieldContainer" class="mt-3" style="display:none">
+            <input type="text" class="form-control rounded-3" id="otherFieldResponse" name="otherField" placeholder="Please specify the field">
           </div>
-          <div class="steps-phase">
-            <div class="steps-phase-num">2</div>
-            <div class="steps-phase-title">Academic Questions</div>
-          </div>
-          <div class="steps-phase steps-phase-active">
-            <div class="steps-phase-num">3</div>
-            <div class="steps-phase-title">Open Questions</div>
+
+          <div class="mt-4">
+            <label for="fieldRating" class="form-label">Rate yourself in each selected field and give examples if you have experience in any of them.<span>*</span></label>
+            <textarea class="form-control rounded-3 mb-5" id="fieldRating" name="fieldRating" rows="5" placeholder="Example: Web developing - 8/10 - I built..." required></textarea>
           </div>
         </div>
 
-        <!-- Open-ended questions -->
-        <div class="mb-2">
-          <label for="whatknow" class="form-label mt-3">What do you know about Milestone?<span> *</span></label>
-          <textarea class="form-control rounded-3 mb-5" id="whatknow" name="whatknow" rows="4" oninput="auto_grow(this)"
-            placeholder="Please answer the question" required></textarea>
-        </div>
+        <div class="mb-2"><label for="whatAdd" class="form-label mt-3">What do you think you will add to our organization?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="whatAdd" name="whatAdd" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="learning" class="form-label mt-3">How do you approach learning new skills, especially when they are outside your comfort zone?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="learning" name="learning" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="reliableSource" class="form-label mt-3">How do you make sure a source is reliable?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="reliableSource" name="reliableSource" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="fieldVsOnline" class="form-label mt-3">If the information you expected to get from the field was completely different from what you found online, what would you do?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="fieldVsOnline" name="fieldVsOnline" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="researchExample" class="form-label mt-3">Give me an example of a task/interest you worked on where you had to search for information and be resourceful. (Elaborate the steps you took)<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="researchExample" name="researchExample" rows="5" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="sponsorChoice" class="form-label mt-3">Your sponsor made you two offers: 1-Get a $1 million cash and invest in an existing project. 2- Get $2 million cash and invest in a totally new project. What would you choose? And why?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="sponsorChoice" name="sponsorChoice" rows="5" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="innovativeSolution" class="form-label mt-3">Describe an innovative solution you have come up with and how you implemented it?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="innovativeSolution" name="innovativeSolution" rows="5" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="knownOrNewField" class="form-label mt-3">Would you rather work in a field you already know or explore one you have never experienced? why?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="knownOrNewField" name="knownOrNewField" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="teamBehavior" class="form-label mt-3">What is one behavior you think can quietly destroy a team, even if everyone in the team is talented?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="teamBehavior" name="teamBehavior" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="independentOrTeam" class="form-label mt-3">Would you rather work independently to get a task done fast, or collaborate closely with a team? Why?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="independentOrTeam" name="independentOrTeam" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="criticism" class="form-label mt-3">How do you handle criticism or feedback?<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="criticism" name="criticism" rows="4" placeholder="Please answer the question" required></textarea></div>
+        <div class="mb-2"><label for="ask" class="form-label">Now it’s your turn to ask Enactus Mansoura question.<span>*</span></label><textarea class="form-control rounded-3 mb-5" id="ask" name="ask" rows="3" placeholder="Ask us a question" required></textarea></div>
 
-
-        <div class="mb-2">
-          <label for="interest" class="form-label mt-3">Why are you interested in participating in Milestone?<span>
-              *</span></label>
-          <textarea class="form-control rounded-3 mb-5" id="interest" name="interest" rows="4" oninput="auto_grow(this)"
-            placeholder="Please answer the question" required></textarea>
-        </div>
-
-        <div class="mb-2">
-          <label for="hoursPerWeek" class="form-label mt-3">How many hours are you free per week?<span> *</span></label>
-          <textarea class="form-control rounded-3 mb-5" id="hoursPerWeek" name="hoursPerWeek" rows="4"
-            oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
-        </div>
-
-        <div class="mb-2">
-          <label for="skillsRating" class="form-label mt-3">Rate your skills (graphic designing, presentation,
-            research), and if you have any experience please mention it.<span> *</span></label>
-          <textarea class="form-control rounded-3 mb-5" id="skillsRating" name="skillsRating" rows="4"
-            oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
-        </div>
-
-        <div class="mb-2">
-          <label for="strengthWeakness" class="form-label mt-3">What are your Strengths and weaknesses?<span>
-              *</span></label>
-          <textarea class="form-control rounded-3 mb-5" id="strengthWeakness" name="strengthWeakness" rows="4"
-            oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
-        </div>
-
-        <div class="mb-2">
-          <label for="stress" class="form-label mt-3">How do you deal with stress and tight deadlines?<span>
-              *</span></label>
-          <textarea class="form-control rounded-3 mb-5" id="stress" name="stress" rows="4" oninput="auto_grow(this)"
-            placeholder="Please answer the question" required></textarea>
-        </div>
-
-        <div class="mb-2">
-          <label for="teamwork" class="form-label mt-3">Mention any previous experience related to teamwork.<span>
-              *</span></label>
-          <textarea class="form-control rounded-3 mb-5" id="teamwork" name="teamwork" rows="4" oninput="auto_grow(this)"
-            placeholder="Please answer the question" required></textarea>
-        </div>
-
-        <div class="mb-2">
-          <label for="criticism" class="form-label mt-3">How do you handle criticism or negative feedback?<span>
-              *</span></label>
-          <textarea class="form-control rounded-3 mb-5" id="criticism" name="criticism" rows="4"
-            oninput="auto_grow(this)" placeholder="Please answer the question" required></textarea>
-        </div>
-
-        <div>
-          <div class="mb-2">
-            <label for="ask" class="form-label">Do you have any questions?<span> *</span></label>
-            <textarea class="form-control rounded-3 mb-5" id="ask" name="ask" rows="2" oninput="auto_grow2(this)"
-              placeholder="Ask us a question" required></textarea>
-          </div>
-          <div class="button"><button type="submit" id="submit" class="btn rounded-5">Submit</button></div>
-        </div>
-
-      </div>
-
-
+        <div class="button"><button type="submit" id="submit" class="btn rounded-5">Submit</button></div>
       </form>
     </div>
 
-    <div class="button">
-      <div class="bott" style="margin-bottom: 40px;">
-        <p>Main Sponsor</p>
-        <div class="social" id="contact">
-          <img src="assets/b-society.png" id="main-sponsor" alt="">
-        </div>
-      </div>
-      
-    </div>
-    <div class="bar">
-      <p>© 2026 Enactus Mansoura University</p>
-    </div>
+    <div class="button"><div class="bott" style="margin-bottom:40px;"><p>Main Sponsor</p><div class="social" id="contact"><img src="assets/b-society.png" id="main-sponsor" alt="Main Sponsor"></div></div></div>
+    <div class="bar"><p>© 2027 Enactus Mansoura University</p></div>
   </div>
 
   <script>
-    function auto_grow(element) {
-      element.style.height = "auto";
-      element.style.height = (element.scrollHeight + 2) + "px";
-    }
+    const tutorialYearRadios = document.querySelectorAll('input[name="tutorialYear"]');
+    const tutorialYearOtherContainer = document.getElementById('tutorialYearOtherContainer');
+    const tutorialYearOther = document.getElementById('tutorialYearOther');
 
-    function auto_grow2(element) {
-      element.style.height = "auto";
-      element.style.height = (element.scrollHeight + 2) + "px";
-    }
-  </script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const radioButtons = document.querySelectorAll('input[name="radio"]');
-      const otherYearField = document.getElementById('other_option_response');
-
-      // Function to handle the visibility of the "Other" text field
-      function updateOtherFieldVisibility() {
-        const selectedRadio = Array.from(radioButtons).find(radio => radio.checked);
-
-        if (selectedRadio && selectedRadio.value === '__other_option__') {
-          otherYearField.classList.remove('hidden');
-          otherYearField.setAttribute("required", "");
-        } else {
-          otherYearField.classList.add('hidden');
-          otherYearField.removeAttribute("required");
-          otherYearField.value = ""; // Clear the input if not selected
-        }
-      }
-
-      // Event listener for radio button changes
-      radioButtons.forEach(function (radio) {
-        radio.addEventListener('change', function () {
-          updateOtherFieldVisibility();
-        });
-      });
-
-      // Check the state of the radio buttons and the input field on page load
-      updateOtherFieldVisibility();
-
-      // Check the state of the "Other" field if applicable
-      const otherField = document.getElementById('otherField');
-      const otherFieldInput = document.getElementById('other_field_response');
-
-      function checkOtherField() {
-        if (otherField.checked) {
-          otherFieldInput.classList.remove('hidden');
-          otherFieldInput.setAttribute("required", "");
-        } else {
-          otherFieldInput.classList.add('hidden');
-          otherFieldInput.removeAttribute("required");
-          otherFieldInput.value = ""; // Clear the input if not selected
-        }
-      }
-
-      otherField.addEventListener('change', checkOtherField);
-      checkOtherField();
-    });
-
-  </script>
-
-  <script>
-    // Listen to changes on any checkbox in the form
-    document.querySelectorAll('input[name="fields[]"]').forEach(function (checkbox) {
-      checkbox.addEventListener('change', function () {
-        var checkboxes = document.querySelectorAll('input[name="fields[]"]');
-        var isChecked = Array.prototype.slice.call(checkboxes).some(function (checkbox) {
-          return checkbox.checked;
-        });
-
-        // If any checkbox is checked, remove the 'required' attribute from the first one
-        if (isChecked) {
-          checkboxes[0].removeAttribute('required');
-          checkboxes[1].removeAttribute('required');
-          checkboxes[2].removeAttribute('required');
-          checkboxes[3].removeAttribute('required');
-          checkboxes[4].removeAttribute('required');
-          checkboxes[5].removeAttribute('required');
-          checkboxes[6].removeAttribute('required');
-          checkboxes[7].removeAttribute('required');
-          checkboxes[8].removeAttribute('required');
-
-
-        } else {
-          checkboxes[0].setAttribute('required', 'required');
-          checkboxes[1].setAttribute('required', 'required');
-          checkboxes[2].setAttribute('required', 'required');
-          checkboxes[3].setAttribute('required', 'required');
-          checkboxes[4].setAttribute('required', 'required');
-          checkboxes[5].setAttribute('required', 'required');
-          checkboxes[6].setAttribute('required', 'required');
-          checkboxes[7].setAttribute('required', 'required');
-          checkboxes[8].setAttribute('required', 'required');
-
-        }
+    tutorialYearRadios.forEach(radio => {
+      radio.addEventListener('change', function () {
+        const isOther = this.value === '__other_option__';
+        tutorialYearOtherContainer.style.display = isOther ? 'block' : 'none';
+        tutorialYearOther.required = isOther;
+        if (!isOther) tutorialYearOther.value = '';
       });
     });
-  </script>
 
+    const fieldCheckboxes = document.querySelectorAll('.field-checkbox');
+    const otherField = document.getElementById('otherField');
+    const otherFieldContainer = document.getElementById('otherFieldContainer');
+    const otherFieldResponse = document.getElementById('otherFieldResponse');
 
+    function updateFieldsState() {
+      const anyChecked = Array.from(fieldCheckboxes).some(cb => cb.checked);
 
+      fieldCheckboxes.forEach(cb => {
+        cb.required = !anyChecked;
+      });
 
-  <script>
-    document.getElementById('form').addEventListener('submit', function (event) {
-      var submitBtn = document.getElementById('submit');
+      if (otherField.checked) {
+        otherFieldContainer.style.display = 'block';
+        otherFieldResponse.required = true;
+      } else {
+        otherFieldContainer.style.display = 'none';
+        otherFieldResponse.required = false;
+        otherFieldResponse.value = '';
+      }
+    }
+
+    fieldCheckboxes.forEach(cb => cb.addEventListener('change', updateFieldsState));
+    updateFieldsState();
+
+    document.getElementById('form').addEventListener('submit', function () {
+      const submitBtn = document.getElementById('submit');
       submitBtn.disabled = true;
       submitBtn.innerText = 'Submitting...';
     });
   </script>
 </body>
-
 </html>
