@@ -6,11 +6,19 @@
       "use": "@vercel/node"
     }
   ],
+  "functions": {
+    "server.js": {
+      "includeFiles": [
+        "index.html",
+        "success.html",
+        "fail.html",
+        "style/**",
+        "script/**",
+        "assets/**"
+      ]
+    }
+  },
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "/server.js"
