@@ -108,7 +108,7 @@ module.exports = async (req, res) => {
       availability,
       workLifeBalance,
       responsibilities,
-      fields,
+     "fields[]": fields,
       otherField,
       fieldRating,
       whatAdd,
