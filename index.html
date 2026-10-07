@@ -208,11 +208,47 @@
     fieldCheckboxes.forEach(cb => cb.addEventListener('change', updateFieldsState));
     updateFieldsState();
 
-    document.getElementById('form').addEventListener('submit', function () {
-      const submitBtn = document.getElementById('submit');
-      submitBtn.disabled = true;
-      submitBtn.innerText = 'Submitting...';
+    const form = document.getElementById('form');
+const submitBtn = document.getElementById('submit');
+
+form.addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  submitBtn.disabled = true;
+  submitBtn.innerText = 'Submitting...';
+
+  try {
+    const formData = new FormData(form);
+
+    const response = await fetch('/api/submit', {
+      method: 'POST',
+      body: new URLSearchParams(formData)
     });
+
+    if (response.ok) {
+      // Mark this browser session as already submitted
+      sessionStorage.setItem('enactusSubmitted', 'true');
+
+      // Never keep the form in history
+      window.location.replace('/success.html');
+    } else {
+      window.location.replace('/fail.html');
+    }
+
+  } catch (error) {
+    console.error('Submission error:', error);
+
+    window.location.replace('/fail.html');
+  }
+});
+
+// If the user tries to come back to the form after submitting
+window.addEventListener('pageshow', function () {
+  if (sessionStorage.getItem('enactusSubmitted') === 'true') {
+    window.location.replace('/success.html');
+  }
+});
+   
   </script>
 </body>
 </html>
