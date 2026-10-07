@@ -1,0 +1,14 @@
+* [33m03e5bc6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32menactus-form[m[33m, [m[1;31morigin/enactus-form[m[33m)[m Fix Vercel serverless deployment
+[31m|[m *   [33ma325a96[m[33m ([m[1;31morigin/milestone-form-2026[m[33m)[m Merge pull request #1 from Abdelrhmantalaat/enactus-form
+[31m|[m [32m|[m[31m\[m  
+[31m|[m [32m|[m[31m/[m  
+[31m|[m[31m/[m[32m|[m   
+* [32m|[m [33m64ca6b4[m Fix server host binding
+[32m|[m[32m/[m  
+* [33me5d2839[m Prepare recruitment website for deployment
+* [33mcea5e08[m update form syling
+* [33m6da08ec[m update title for Milestone 2026 application form
+* [33m23aa70b[m update success and failure pages for Milestone 2026 application forms
+* [33m1a19d39[m remove unused checkbox handling and date parsing in submit function
+* [33mba8fb5e[m add milestone 2026 form questions and form endpoint
+* [33mbaa6160[m[33m ([m[1;31morigin/applications-closed-2026[m[33m, [m[1;31morigin/application-form-2026[m[33m)[m fix social icons
