@@ -19,11 +19,11 @@ const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://localhost:${PORT}`);
     let pathname = decodeURIComponent(url.pathname);
 
-    if (pathname === "/") {
-      pathname = "/index.html";
-    }
+if (pathname === "/") {
+  pathname = "/index.html";
+}
 
-    const filePath = path.join(__dirname, pathname);
+const filePath = path.join(__dirname, pathname.replace(/^\/+/, ""));
 
     // Prevent accessing files outside project
     if (!filePath.startsWith(__dirname)) {
