@@ -1,9 +1,17 @@
 {
   "version": 2,
+  "functions": {
+    "api/submit.js": {
+      "runtime": "nodejs22.x"
+    }
+  },
   "routes": [
     {
-      "src": "/api/submit",
-      "dest": "/api/submit.js"
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "handle": "filesystem"
     }
   ]
 }
