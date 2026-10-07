@@ -1,23 +1,61 @@
 const https = require("https");
 const querystring = require("querystring");
 
+const FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSexkC04-UsvsQ18TmOOj4DVVaLPF7ulavqJBETLnmyMtSPTlA/formResponse";
+
+function getBody(req) {
+  return new Promise((resolve, reject) => {
+    // Vercel may already parse the body
+    if (req.body && typeof req.body === "object") {
+      resolve(req.body);
+      return;
+    }
+
+    let body = "";
+
+    req.on("data", (chunk) => {
+      body += chunk.toString();
+    });
+
+    req.on("end", () => {
+      try {
+        resolve(querystring.parse(body));
+      } catch (error) {
+        reject(error);
+      }
+    });
+
+    req.on("error", reject);
+  });
+}
+
+function sendSuccess(res) {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/html; charset=UTF-8");
+  res.end(successPage);
+}
+
+function sendFailure(res, statusCode = 500) {
+  res.statusCode = statusCode;
+  res.setHeader("Content-Type", "text/html; charset=UTF-8");
+  res.end(failPage);
+}
+
 module.exports = async (req, res) => {
   if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method Not Allowed" });
+    res.statusCode = 405;
+    res.setHeader("Allow", "POST");
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify({ message: "Method Not Allowed" }));
+    return;
   }
 
-  let body = "";
+  try {
+    const parsedBody = await getBody(req);
 
-  req.on("data", (chunk) => {
-    body += chunk.toString();
-  });
-
-  req.on("end", () => {
-    const parsedBody = querystring.parse(body);
-
-    // =========================
-    // Get data from website
-    // =========================
+    console.log("FORM DATA RECEIVED:");
+    console.log(parsedBody);
 
     const {
       name,
@@ -56,155 +94,67 @@ module.exports = async (req, res) => {
       teamBehavior,
       independentOrTeam,
       criticism,
-      ask
+      ask,
     } = parsedBody;
-
-    // =========================
-    // Google Forms data
-    // =========================
 
     const googleFormData = [];
 
-    // Name
-    googleFormData.push([
-      "entry.1884265043",
-      name || ""
-    ]);
-
-    // Mail
-    googleFormData.push([
-      "entry.893066703",
-      email || ""
-    ]);
-
-    // Phone Number
-    googleFormData.push([
-      "entry.762664935",
-      phone || ""
-    ]);
-
-    // Residency
-    googleFormData.push([
-      "entry.777963996",
-      residency || ""
-    ]);
-
-    // Birth Date
-    googleFormData.push([
-      "entry.16062350",
-      birthDate || ""
-    ]);
-
-    // High School
-    googleFormData.push([
-      "entry.525139968",
-      highSchool || ""
-    ]);
-
-    // University
-    googleFormData.push([
-      "entry.1951007764",
-      university || ""
-    ]);
-
-    // Faculty
-    googleFormData.push([
-      "entry.943573766",
-      faculty || ""
-    ]);
-
-    // Tutorial Year
-    if (tutorialYear === "__other_option__") {
+    function addField(entry, value) {
       googleFormData.push([
-        "entry.914168470",
-        "__other_option__"
-      ]);
-
-      googleFormData.push([
-        "entry.914168470.other_option_response",
-        tutorialYearOther || ""
-      ]);
-    } else {
-      googleFormData.push([
-        "entry.914168470",
-        tutorialYear || ""
+        entry,
+        value == null ? "" : String(value),
       ]);
     }
 
-    // Instagram
-    googleFormData.push([
-      "entry.1224563023",
-      instagram || ""
-    ]);
+    // =========================
+    // PERSONAL
+    // =========================
 
-    // What do you know about Enactus?
-    googleFormData.push([
-      "entry.1964115254",
-      whatKnow || ""
-    ]);
-
-    // How do you know about it?
-    googleFormData.push([
-      "entry.211995956",
-      howKnow || ""
-    ]);
-
-    // What makes Enactus Mansoura different?
-    googleFormData.push([
-      "entry.1600134367",
-      difference || ""
-    ]);
-
-    // Why are you interested?
-    googleFormData.push([
-      "entry.212046804",
-      interest || ""
-    ]);
-
-    // Previous volunteer work
-    googleFormData.push([
-      "entry.1208719334",
-      volunteerWork || ""
-    ]);
-
-    // Strengths and weaknesses
-    googleFormData.push([
-      "entry.212781714",
-      strengthWeakness || ""
-    ]);
-
-    // Team member or leader
-    googleFormData.push([
-      "entry.1706350781",
-      teamPreference || ""
-    ]);
-
-    // When do you step into leadership?
-    googleFormData.push([
-      "entry.513669972",
-      leadershipRole || ""
-    ]);
-
-    // Current availability
-    googleFormData.push([
-      "entry.1033504492",
-      availability || ""
-    ]);
-
-    // Work-life balance
-    googleFormData.push([
-      "entry.1556742120",
-      workLifeBalance || ""
-    ]);
-
-    // Current responsibilities
-    googleFormData.push([
-      "entry.1711800281",
-      responsibilities || ""
-    ]);
+    addField("entry.1884265043", name);
+    addField("entry.893066703", email);
+    addField("entry.762664935", phone);
+    addField("entry.777963996", residency);
+    addField("entry.16062350", birthDate);
+    addField("entry.525139968", highSchool);
 
     // =========================
-    // Fields
+    // ACADEMIC
+    // =========================
+
+    addField("entry.1951007764", university);
+    addField("entry.943573766", faculty);
+
+    // Tutorial Year
+    if (tutorialYear === "__other_option__") {
+      addField("entry.914168470", "__other_option__");
+      addField(
+        "entry.914168470.other_option_response",
+        tutorialYearOther
+      );
+    } else {
+      addField("entry.914168470", tutorialYear);
+    }
+
+    addField("entry.1224563023", instagram);
+
+    // =========================
+    // OPEN QUESTIONS
+    // =========================
+
+    addField("entry.1964115254", whatKnow);
+    addField("entry.211995956", howKnow);
+    addField("entry.1600134367", difference);
+    addField("entry.212046804", interest);
+    addField("entry.1208719334", volunteerWork);
+    addField("entry.212781714", strengthWeakness);
+    addField("entry.1706350781", teamPreference);
+    addField("entry.513669972", leadershipRole);
+    addField("entry.1033504492", availability);
+    addField("entry.1556742120", workLifeBalance);
+    addField("entry.1711800281", responsibilities);
+
+    // =========================
+    // FIELDS
     // =========================
 
     let selectedFields = fields || [];
@@ -214,107 +164,46 @@ module.exports = async (req, res) => {
     }
 
     selectedFields.forEach((field) => {
-      if (field && field !== "__other_option__") {
-        googleFormData.push([
+      if (field === "__other_option__") {
+        addField(
           "entry.1842565250",
-          field
-        ]);
+          "__other_option__"
+        );
+
+        addField(
+          "entry.1842565250.other_option_response",
+          otherField
+        );
+      } else if (field) {
+        addField("entry.1842565250", field);
       }
     });
 
-    // Other field
-    if (selectedFields.includes("__other_option__")) {
-      googleFormData.push([
-        "entry.1842565250",
-        "__other_option__"
-      ]);
+    // =========================
+    // FIELD RATING
+    // =========================
 
-      googleFormData.push([
-        "entry.1842565250.other_option_response",
-        otherField || ""
-      ]);
-    }
-
-    // Rate yourself / examples
-    googleFormData.push([
-      "entry.1891756682",
-      fieldRating || ""
-    ]);
-
-    // What will you add?
-    googleFormData.push([
-      "entry.65505240",
-      whatAdd || ""
-    ]);
-
-    // Learning new skills
-    googleFormData.push([
-      "entry.2032761895",
-      learning || ""
-    ]);
-
-    // Reliable source
-    googleFormData.push([
-      "entry.14291829",
-      reliableSource || ""
-    ]);
-
-    // Field vs online information
-    googleFormData.push([
-      "entry.1862403506",
-      fieldVsOnline || ""
-    ]);
-
-    // Research / resourcefulness example
-    googleFormData.push([
-      "entry.1531088855",
-      researchExample || ""
-    ]);
-
-    // Sponsor choice
-    googleFormData.push([
-      "entry.1093445631",
-      sponsorChoice || ""
-    ]);
-
-    // Innovative solution
-    googleFormData.push([
-      "entry.517038073",
-      innovativeSolution || ""
-    ]);
-
-    // Known field or new field
-    googleFormData.push([
-      "entry.139029733",
-      knownOrNewField || ""
-    ]);
-
-    // Team behavior
-    googleFormData.push([
-      "entry.1710103116",
-      teamBehavior || ""
-    ]);
-
-    // Independent or team
-    googleFormData.push([
-      "entry.1037119084",
-      independentOrTeam || ""
-    ]);
-
-    // Criticism / feedback
-    googleFormData.push([
-      "entry.1782600271",
-      criticism || ""
-    ]);
-
-    // Final question
-    googleFormData.push([
-      "entry.1261012492",
-      ask || ""
-    ]);
+    addField("entry.1891756682", fieldRating);
 
     // =========================
-    // Convert data to URL encoded
+    // REMAINING QUESTIONS
+    // =========================
+
+    addField("entry.65505240", whatAdd);
+    addField("entry.2032761895", learning);
+    addField("entry.14291829", reliableSource);
+    addField("entry.1862403506", fieldVsOnline);
+    addField("entry.1531088855", researchExample);
+    addField("entry.1093445631", sponsorChoice);
+    addField("entry.517038073", innovativeSolution);
+    addField("entry.139029733", knownOrNewField);
+    addField("entry.1710103116", teamBehavior);
+    addField("entry.1037119084", independentOrTeam);
+    addField("entry.1782600271", criticism);
+    addField("entry.1261012492", ask);
+
+    // =========================
+    // CONVERT TO URL ENCODED
     // =========================
 
     const postData = googleFormData
@@ -327,74 +216,84 @@ module.exports = async (req, res) => {
       })
       .join("&");
 
+    console.log("Sending data to Google Forms...");
+
     // =========================
-    // Google Forms request
+    // SEND TO GOOGLE FORMS
     // =========================
 
-    const options = {
-      hostname: "docs.google.com",
+    const googleResponse = await new Promise(
+      (resolve, reject) => {
+        const options = {
+          hostname: "docs.google.com",
 
-      path:
-        "/forms/d/e/1FAIpQLSexkC04-UsvsQ18TmOOj4DVVaLPF7ulavqJBETLnmyMtSPTlA/formResponse",
+          path:
+            "/forms/d/e/1FAIpQLSexkC04-UsvsQ18TmOOj4DVVaLPF7ulavqJBETLnmyMtSPTlA/formResponse",
 
-      method: "POST",
+          method: "POST",
 
-      headers: {
-        "Content-Type":
-          "application/x-www-form-urlencoded",
+          headers: {
+            "Content-Type":
+              "application/x-www-form-urlencoded",
 
-        "Content-Length":
-          Buffer.byteLength(postData),
-      },
-    };
+            "Content-Length":
+              Buffer.byteLength(postData),
+          },
+        };
 
-    const request = https.request(
-      options,
-      (response) => {
-        let data = "";
+        const request = https.request(
+          options,
+          (response) => {
+            let responseData = "";
 
-        response.on("data", (chunk) => {
-          data += chunk;
-        });
+            response.on("data", (chunk) => {
+              responseData += chunk;
+            });
 
-        response.on("end", () => {
-          console.log(
-            "Google Forms response:",
-            response.statusCode
-          );
+            response.on("end", () => {
+              resolve({
+                statusCode: response.statusCode,
+                body: responseData,
+              });
+            });
+          }
+        );
 
-          res.setHeader(
-            "Content-Type",
-            "text/html"
-          );
+        request.on("error", reject);
 
-          res.status(200).send(successPage);
-        });
+        request.write(postData);
+        request.end();
       }
     );
 
-    request.on("error", (error) => {
+    console.log(
+      "Google Forms response:",
+      googleResponse.statusCode
+    );
+
+    // Google Forms normally returns 200 or 3xx
+    if (
+      googleResponse.statusCode >= 200 &&
+      googleResponse.statusCode < 400
+    ) {
+      sendSuccess(res);
+    } else {
       console.error(
-        "Google Forms error:",
-        error
+        "Google Forms rejected submission:",
+        googleResponse.statusCode
       );
 
-      res.setHeader(
-        "Content-Type",
-        "text/html"
-      );
+      sendFailure(res, 502);
+    }
+  } catch (error) {
+    console.error("SUBMISSION ERROR:", error);
 
-      res.status(500).send(failPage);
-    });
-
-    request.write(postData);
-    request.end();
-  });
+    sendFailure(res, 500);
+  }
 };
 
-
 // =========================
-// Success Page
+// SUCCESS PAGE
 // =========================
 
 const successPage = `
@@ -402,7 +301,6 @@ const successPage = `
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8" />
 
   <meta
@@ -415,7 +313,6 @@ const successPage = `
   </title>
 
   <style>
-
     body {
       margin: 0;
       min-height: 100vh;
@@ -442,9 +339,7 @@ const successPage = `
     p {
       font-size: 18px;
     }
-
   </style>
-
 </head>
 
 <body>
@@ -466,9 +361,8 @@ const successPage = `
 </html>
 `;
 
-
 // =========================
-// Failure Page
+// FAILURE PAGE
 // =========================
 
 const failPage = `
@@ -476,7 +370,6 @@ const failPage = `
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8" />
 
   <meta
@@ -489,7 +382,6 @@ const failPage = `
   </title>
 
   <style>
-
     body {
       margin: 0;
       min-height: 100vh;
@@ -516,9 +408,7 @@ const failPage = `
     p {
       font-size: 18px;
     }
-
   </style>
-
 </head>
 
 <body>
