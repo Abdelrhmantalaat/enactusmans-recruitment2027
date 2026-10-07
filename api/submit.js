@@ -31,14 +31,42 @@ function getBody(req) {
 }
 
 function sendSuccess(res) {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/html; charset=UTF-8");
+  res.statusCode = 303
+res.setHeader("Location", "/success.html");
+
+  res.setHeader(
+    "Content-Type",
+    "text/html; charset=UTF-8"
+  );
+
+  // Prevent browser from caching the submission/success response
+  res.setHeader(
+    "Cache-Control",
+    "no-store, no-cache, must-revalidate, proxy-revalidate"
+  );
+
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Expires", "0");
+
   res.end(successPage);
 }
 
 function sendFailure(res, statusCode = 500) {
   res.statusCode = statusCode;
-  res.setHeader("Content-Type", "text/html; charset=UTF-8");
+
+  res.setHeader(
+    "Content-Type",
+    "text/html; charset=UTF-8"
+  );
+
+  res.setHeader(
+    "Cache-Control",
+    "no-store, no-cache, must-revalidate, proxy-revalidate"
+  );
+
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Expires", "0");
+
   res.end(failPage);
 }
 
@@ -307,7 +335,20 @@ const successPage = `
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
+<meta
+  http-equiv="Cache-Control"
+  content="no-store, no-cache, must-revalidate"
+/>
 
+<meta
+  http-equiv="Pragma"
+  content="no-cache"
+/>
+
+<meta
+  http-equiv="Expires"
+  content="0"
+/>
   <title>
     Thank You - Enactus Mansoura Recruitment 2027
   </title>
@@ -355,7 +396,21 @@ const successPage = `
     </p>
 
   </div>
+ <script>
+    // Prevent returning to the submitted form using browser Back
+    window.history.pushState(null, "", window.location.href);
 
+    window.addEventListener("popstate", function () {
+      window.history.pushState(null, "", window.location.href);
+    });
+
+    // Prevent the success page from being cached
+    window.addEventListener("pageshow", function (event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+  </script>
 </body>
 
 </html>
