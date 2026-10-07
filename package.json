@@ -1,25 +1,13 @@
 {
   "name": "enactusmu-recruitment-2025",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^5.2.1"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shadyessaam/enactusMU-recruitment-2025.git"
-  },
-  "bugs": {
-    "url": "https://github.com/shadyessaam/enactusMU-recruitment-2025/issues"
-  },
-  "homepage": "https://github.com/shadyessaam/enactusMU-recruitment-2025#readme",
+  "dependencies": {},
   "description": ""
 }
